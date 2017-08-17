@@ -1,0 +1,4 @@
+<fonts>
+    <font id ="ClockFont" filename="clock-font.fnt" filter="0123456789:/" antialias="true"/>
+    <font id ="TitleFont" filename="title-font.fnt" antialias="true"/>
+</fonts>

@@ -1,0 +1,4 @@
+*/*.prg
+*/*.prg.debug.xml
+.idea/*workspace.*
+*/.idea/*workspace.*

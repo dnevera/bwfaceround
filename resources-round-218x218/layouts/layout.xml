@@ -1,0 +1,43 @@
+<!-- 218x218 -->
+
+<layout id="WatchFace">
+    <drawable class="Background"></drawable>
+
+    <drawable class="AFGraph">
+        <param name="height">46</param>
+        <param name="x">109</param>
+        <param name="y">166</param>
+    </drawable>
+
+    <drawable class="BMRMeter">
+        <param name="width">5</param>
+    </drawable>
+
+    <label  text="1400"  id="BmrLabel"      x="109"  y="7"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+
+    <label  text="0"  id="Active0"   x="60"   y="28"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+    <label  text="0"  id="Active00"  x="60"   y="28"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="0"  id="Active1"   x="108"  y="28"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+    <label  text="0"  id="Active10"  x="108"  y="28"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="0"  id="Active2"   x="155"  y="28"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+    <label  text="0"  id="Active20"  x="155"  y="28"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+
+    <label  text="BPM"   id="Active0Title"   x="54"   y="43"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+    <label  text="STEPS" id="Active1Title"   x="110"  y="43"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+    <label  text="KCAL"  id="Active2Title"   x="158"  y="43"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+
+    <label  text="364" id="DayOfYearLabel"  x="18" y="58" font="Gfx.FONT_TINY" justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="52" id="WeekOfYearLabel"  x="58" y="58" font="Gfx.FONT_TINY" justification="Gfx.TEXT_JUSTIFY_LEFT" />
+
+    <label  text="ЧТВ 8 АВГ" id="DateLabel" x="202" y="58" font="Gfx.FONT_TINY" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+
+    <label  text="0" id="HourLabel0"  x="8" y="center"  font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_LEFT" />
+    <label  text="0" id="HourLabel1"  x="96" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+
+    <label  text=":" id="ColumnLabel" x="122" y="58" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label"   x="109" y="75" font="Gfx.FONT_TINY" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text="0" id="MinutesLabel0" x="118" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_LEFT" />
+    <label  text="0" id="MinutesLabel1" x="206" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+
+</layout>

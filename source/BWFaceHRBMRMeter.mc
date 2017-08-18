@@ -26,13 +26,13 @@ class BMRMeter extends Ui.Drawable {
 		var isDeficit =  cl>=0;
 		var prcnt = (cl/userBmr).abs();
 
-		var color = isDeficit ? BWFace.getProperty("ActivityColor",0xA0A0A0) :  BWFace.getProperty("SurplusColor",0xFFFFFF);
+		var color = isDeficit ? BWFace.getColor("ActivityColor") :  BWFace.getColor("SurplusColor");
 
 		cl = cl.abs();
 
         if (isDeficit){
             if (calories/userBmr > BWFace.getProperty("ActivityFactorThreshold", 1.5)) {
-                color = BWFace.getProperty("DeficitColor",0xFFFFFF);
+                color = BWFace.getColor("DeficitColor");
             }
         }
 
@@ -68,7 +68,7 @@ class BMRMeter extends Ui.Drawable {
         dc.drawArc(x, y, r+1, dir, start, end);
 
 		dc.setPenWidth(1);
-		var bg = BWFace.getProperty("BackgroundColor", 0x000000);
+		var bg = BWFace.getColor("BackgroundColor");
 		dc.setColor(bg,  bg);
 		dc.drawArc(x, y, r-width/2+1, dir, start+0.5, end+0.5);
     }

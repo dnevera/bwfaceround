@@ -42,4 +42,75 @@
     <string id="ColorBlue">Blue</string>
     <string id="ColorRed">Red</string>
 
+    <string id="ActivityLeftFieldTitle">Left Field</string>
+    <string id="ActivityMidFieldTitle">Middling Field</string>
+    <string id="ActivityRightFieldTitle">Right Field</string>
+
+    <string id="CaloriesTitle">kcal</string>
+    <string id="StepsTitle">steps</string>
+    <string id="DistanceTitle">km</string>
+    <string id="DistanceMilesTitle">mi</string>
+    <string id="BPMTitle">bpm</string>
+    <string id="SecondsTitle">sec</string>
+
+    <string id="SunriseTitle">SR</string>
+    <string id="SunsetTitle">SS</string>
+    <string id="AltitudeFeetTitle">alt ft</string>
+    <string id="AltitudeTitle">alt m</string>
+
+    <string id="TemperatureTitle">C</string>
+    <string id="TemperatureFahrTitle">F</string>
+    <string id="PressureTitle">kPa</string>
+    <string id="PressureMmHgTitle">mmHg</string>
+    <string id="PressurehPaTitle">hPa</string>
+    <string id="UserBMRTitle">BMR KC</string>
+
+    <string id="ActivityFactorTitle">bmr</string>
+    <string id="FloorsClimbedTitle">floors</string>
+    <string id="ElevationTitle">m</string>
+    <string id="ElevationFeetTitle">ft</string>
+    <string id="ClimbedTitle">m</string>
+    <string id="ClimbedFeetTitle">ft</string>
+
+    <!-- Abbrevations -->
+
+    <string id="SpeedTitle">km/h</string>
+    <string id="SpeedFeetTitle">mph</string>
+    <string id="CadenceTitle">rpm</string>
+
+    <string id="Steps">Steps</string>
+    <string id="Calories">Calories</string>
+    <string id="Distance">Distance</string>
+    <string id="Seconds">Seconds</string>
+
+    <string id="Date">Only date</string>
+    <string id="DateAndSuns">Date and sunrise/sunset</string>
+
+    <string id="Sunrise">Sunrise</string>
+    <string id="Sunset">Sunset</string>
+    <string id="Altitude">Altitude</string>
+
+    <string id="HeartRate">Heart Rate</string>
+    <string id="Temperature">Temperature</string>
+    <string id="Pressure">Pressure kPa</string>
+    <string id="PressurehPa">Pressure hPa</string>
+    <string id="PressureMmHg">Pressure mmHg</string>
+    <string id="UserBMR">Basal metabolic rate</string>
+
+    <string id="NotShow">Nothing shows</string>
+    <string id="Battery">Battery Status</string>
+    <string id="BatteryPhone">Battery/Phone</string>
+    <string id="PhoneConnection">Phone Connection</string>
+    <string id="NotificationBatteryPhoneConnection">Notification/Battery/Phone</string>
+    <string id="NotificationPhoneConnection">Notification/Phone</string>
+    <string id="Notification">Notification</string>
+
+    <string id="ActivityFactor">Activity Factor</string>
+    <string id="FloorsClimbed">Floors Climbed</string>
+    <string id="Climbed">Climbed</string>
+    <string id="Elevation">Elevation</string>
+
+    <string id="Speed">Speed</string>
+    <string id="Cadence">Cadence</string>
+
 </strings>

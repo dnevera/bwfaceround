@@ -10,30 +10,43 @@
         <param name="y">200</param>
     </drawable>
 
-    <label  text="1400"  id="BmrLabel"      x="center"  y="10"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+    <label  text=""  id="BmrLabel"      x="center"  y="6"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
 
-    <label  text="0"  id="Active0"   x="61"   y="31"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
-    <label  text="0"  id="Active00"  x="61"   y="35"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="0"  id="Active1"   x="118"  y="31"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
-    <label  text="0"  id="Active10"  x="118"  y="35"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="0"  id="Active2"   x="166"  y="31"  justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
-    <label  text="0"  id="Active20"  x="166"  y="35"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <drawable class="ActiveLeft">
+        <param name="x">90</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityLeftField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_RIGHT</param>
+    </drawable>
 
-    <label  text="BPM"   id="Active0Title"   x="56"   y="50"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
-    <label  text="STEPS" id="Active1Title"   x="120"  y="50"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
-    <label  text="KCAL"  id="Active2Title"   x="182"  y="50"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
+    <drawable class="ActiveMid">
+        <param name="x">120</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityMidField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_CENTER</param>
+    </drawable>
 
-    <label  text="" id="DateHintLabel"  x="20" y="69"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="ЧТВ 8 АВГ" id="DateLabel"  x="220" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+    <drawable class="ActiveRight">
+        <param name="x">150</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityRightField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_LEFT</param>
+    </drawable>
 
-    <label  text="0" id="HourLabel0"  x="36" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="HourLabel1"  x="82" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="" id="DateHintLabel"  x="20" y="70"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="DateLabel"      x="220" y="64" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
-    <label  text=":" id="ColumnLabel" x="121" y="65" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text=":" id="ColumnLabel" x="121" y="70"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="AM" id="H12Label"   x="121" y="82"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="0" id="MinutesLabel0" x="160" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="MinutesLabel1" x="206" y="center" font="@Fonts.ClockFont" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel0" x="160" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel1" x="206" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <drawable class="BMRMeter">
         <param name="width">6</param>

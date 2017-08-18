@@ -5,6 +5,7 @@ using Toybox.Application as App;
 using Toybox.UserProfile as User;
 using Toybox.Time.Gregorian as Calendar;
 using Toybox.Time as Time;
+using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
 
@@ -12,6 +13,10 @@ module BWFace {
 		var v = App.getApp().getProperty(key);
 		return v == null ? default_value : v;
 	}
+
+    function getColor(color){
+        return getProperty(color, 0xFFFFFF);
+    }
 
 	function setProperty(key,value) {
 		App.getApp().setProperty(key, value);
@@ -96,5 +101,26 @@ module BWFace {
     		af = af == null ? 1 : af;
     		af = af < 1 ? 1 : af;
     		return bmrvalue * af ;
+    }
+
+    function bmrDiff(){
+		var calories = ActivityMonitor.getInfo().calories;
+		if (calories==null) {
+		    return 0;
+		}
+		var userBmr = BWFace.bmr();
+		return calories - userBmr;
+    }
+
+    function activityFactor(){
+		var calories = ActivityMonitor.getInfo().calories;
+		if (calories==null) {
+		    return 0;
+		}
+        var userBmr = BWFace.bmr();
+        if (userBmr==0){
+            return 0;
+        }
+        return calories/userBmr;
     }
 }

@@ -31,17 +31,14 @@ enum {
 
 class BWFaceValue {
 
-	var properties;
 	var geoInfo;
 
-
-	function initialize(_properties){
-		properties = _properties;
-		geoInfo = new BWFaceGeoInfo(properties);
+	function initialize(){
+		geoInfo = new BWFaceGeoInfo();
 	}
 
 	function info(id) {
-		var dict = {:scale=>1,:delim=>"",:title=>"", :format=>"%d", :prec=>3};
+		var dict = {:scale=>1,:delim=>"",:title=>"", :format=>"%d", :prec=>2};
 		switch (id) {
 			case BW_Distance: // distance
                 if (Sys.getDeviceSettings().distanceUnits == Sys.UNIT_STATUTE) {
@@ -140,12 +137,21 @@ class BWFaceValue {
 		return dict;
 	}
 
+    function distanceFactor(){
+        if (System.getDeviceSettings().distanceUnits == System.UNIT_STATUTE) {
+		   return 1.609344;
+		}
+	    else {
+	       return 1;
+	   }
+    }
+
 	function value(id) {
 		var value = 0;
 		switch (id) {
 			case BW_Distance: // distance
 				value = Monitor.getInfo().distance;
-				value = value == null ? "--" : value/100.0/properties.statuteFactor;
+				value = value == null ? "--" : value/100.0/distanceFactor();
 				break;
 
 			case BW_FloorsClimbed:
@@ -161,7 +167,7 @@ class BWFaceValue {
 			case BW_Climbed:
 			    if (Toybox.ActivityMonitor.Info has :metersClimbed) {
 					value = Monitor.getInfo().metersClimbed;
-					value = value == null ? "--" : value/properties.statuteFactor;
+					value = value == null ? "--" : value/distanceFactor();
 				}
 				else {
 					value = "--";
@@ -234,13 +240,13 @@ class BWFaceValue {
 				break;
 
 			case BW_UserBMR :
-				value =  properties.bmr();
+				value =  BWFace.bmr();
 				break;
 
 			case BW_ActivityFactor :
 				var c = Monitor.getInfo().calories;
 				if (c>0) {
-					value =  (c/properties.bmr()*1000);
+					value =  (c/BWFace.bmr()*1000);
 
 				}
 				else {
@@ -252,7 +258,7 @@ class BWFaceValue {
 				var sensorIter = getElevationIterator();
 				if  ( sensorIter != null ){
 					value = sensorIter.next();
-					value = value == null ? "--" : value.data == null ? "--" : value.data/properties.statuteFactor;
+					value = value == null ? "--" : value.data == null ? "--" : value.data/distanceFactor();
 		    	}
 				else {
 					value = "--";
@@ -287,6 +293,48 @@ class BWFaceValue {
                     value = value == null ? "--" : value.format("%.0f");
 				}
 				break;
+		}
+
+		var inf = info(id);
+
+		if (!(value instanceof Toybox.Lang.String)){
+            //var v = BWFace.decimals(value,1);
+            //value = [v[0].format("%1.0f"),inf[:delim]+v[1].format("%1.0f")];
+            value = BWFace.decFields(value,inf[:delim],inf[:scale],inf[:prec]);
+            if (value[0].length()>=3){
+                value[1] = value[0].substring(1, value[0].length())+value[1];
+                value[0] = value[0].substring(0,1);
+            }
+            value.add(inf[:title]);
+		}
+		else {
+		    switch(value.length()){
+		        case 0:
+	    	        value = ["--",""];
+		        break;
+		        case 1:
+    		        value = [value,""];
+		        break;
+		        case 2:
+    		        value = [value,""];
+		        break;
+		        case 3:
+    		        value = [value.substring(0, 2),value.substring(2, 4)];
+		        break;
+		        case 4:
+    		        value = [value.substring(0, 2),value.substring(2, 5)];
+		        break;
+//		        case 5:
+//    		        value = [value.substring(0, 1),value.substring(1, 5)];
+//		        break;
+//		        case 6:
+//    		        value = [value.substring(0, 2),value.substring(2, 6)];
+//		        break;
+		        default:
+    		        value = [value.substring(0, 1), value.substring(1, value.length())];
+		        break;
+		    }
+		    value.add(inf[:title]);
 		}
 		return value;
 	}

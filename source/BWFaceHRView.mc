@@ -24,36 +24,48 @@ class BWFaceHRView extends Ui.WatchFace {
         var titlefont = Ui.loadResource(Rez.Fonts.TitleFont);
         var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
-        var color = BWFace.getProperty("HoursColor", 0xFFA500);
+        var color = BWFace.getColor("HoursColor");
         setForView("HourLabel0",times[0],color, clockFont);
         setForView("HourLabel1",times[1],color, clockFont);
         setForView("H12Label",  times[3],color, titlefont);
 
-        color = BWFace.getProperty("TimeColonColor", 0xE0E0E0);
+        color = BWFace.getColor("TimeColonColor");
         setForView("ColumnLabel",times[2],color, clockFont);
 
-        color = BWFace.getProperty("MinutesColor", 0x32CD32);
+        color = BWFace.getColor("MinutesColor");
         setForView("MinutesLabel0",times[4],color, clockFont);
         setForView("MinutesLabel1",times[5],color, clockFont);
 
-        color = BWFace.getProperty("ForegroundColor", 0x32CD32);
+        color = BWFace.getColor("ForegroundColor");
         setForView("DateHintLabel","05:40 20:40",color, smallTitleFont);
-        //setForView("WeekOfYearLabel","50",color, titlefont);
         setForView("DateLabel",calendar(),color, titlefont);
 
-        setForView("Active0","1",color, titlefont);
-        setForView("Active00","28",color, smallTitleFont);
-        setForView("Active0Title","BPM",color, smallTitleFont);
+        //
+        // Configurable fields
+        //
 
-        setForView("Active1","2",color, titlefont);
-        setForView("Active10","00",color, smallTitleFont);
-        setForView("Active1Title","STEPS",color, smallTitleFont);
+//		var leftID  = BWFace.getProperty("ActivityLeftField", BW_HeartRate);
+//		var midID   = BWFace.getProperty("ActivityMidField",  BW_Steps);
+//		var rightID = BWFace.getProperty("ActivityRightField",BW_Calories);
 
-        setForView("Active2", "2",color, titlefont);
-        setForView("Active20","400",color, smallTitleFont);
-        setForView("Active2Title","KCAL",color, smallTitleFont);
+//        var field = new BWFaceValue();
+//
+//        var values = field.value(leftID);
+//        //setForView("Active0",     values[0], color, titlefont);
+//        //setForView("Active00",    values[1], color, smallTitleFont);
+//        //setForView("Active0Title",values[2], color, smallTitleFont);
+//
+//        values = field.value(midID);
+//        setForView("Active1",     values[0], color, titlefont);
+//        setForView("Active10",    values[1], color, smallTitleFont);
+//        setForView("Active1Title",values[2], color, smallTitleFont);
+//
+//        values = field.value(rightID);
+//        setForView("Active2",     values[0], color, titlefont);
+//        setForView("Active20",    values[1], color, smallTitleFont);
+//        setForView("Active2Title",values[2], color, smallTitleFont);
 
-        setForView("BmrLabel","3400",color, titlefont);
+		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, Ui.loadResource(Rez.Fonts.TitleFont));
 
         View.onUpdate(dc);
     }
@@ -88,7 +100,6 @@ class BWFaceHRView extends Ui.WatchFace {
         view.setColor(color);
         view.setText(text);
         if (font!=null){
-            //var font = Ui.loadResource(Rez.Fonts.TitleFont);
             view.setFont(font);
         }
     }

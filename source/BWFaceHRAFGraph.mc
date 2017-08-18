@@ -11,7 +11,6 @@ class AFGraph extends Ui.Drawable {
     var locY;
     var height;
     var barWidth;
-    //var font;
 
     function initialize(params) {
         var dictionary = {
@@ -23,7 +22,6 @@ class AFGraph extends Ui.Drawable {
         locY = params.get(:y);
         height = params.get(:height);
         barWidth = params.get(:barWidth);
-        //font = params.get(:font);
     }
 
     function draw(dc) {
@@ -36,10 +34,8 @@ class AFGraph extends Ui.Drawable {
         var hist = ActivityMonitor.getHistory();
         var calories = ActivityMonitor.getInfo().calories;
 
-        //var font = Gfx.FONT_XTINY; //properties.fonts.infoTitleFontTiny;
         var font = Ui.loadResource(Rez.Fonts.SmallTitleFont);
         var colSize = dc.getTextDimensions("W", font);
-        //var w      = (colSize[0]+padding/2) * 2;
         var w      = (barWidth+padding/2) * 2;
         var offset = w/2+padding/2;
 
@@ -48,31 +44,17 @@ class AFGraph extends Ui.Drawable {
         var start0 = 8;
         var shift;
 
-//        if (
-//        properties.metricField == BW_HeartRate ||
-//        properties.metricField == BW_Temperature ||
-//        properties.metricField == BW_Pressure
-//        ) {
-            count = 8;
-            start = hist.size()-1;
-            //shift = colSize[0]/2;
-            shift = barWidth/2;
-//        }
-//        else {
-//            count = 7;
-//            start = hist.size()-2;
-//            shift = colSize[0]/2;
-//            start0 -= 1;
-//        }
+        count = 8;
+        start = hist.size()-1;
+        shift = barWidth/2;
 
         var x0 = locX - (offset)*count/2 + shift;
-        //var y = locY+colSize[1]+padding;
-        var y = locY;//+colSize[1]+padding;
+        var y = locY;
         var x = x0;
-        var ty = y;//-colSize[1]-padding;
+        var ty = y;
 
-        var bg = BWFace.getProperty("BackgroundColor",0x000000);
-        var fg = BWFace.getProperty("ForegroundColor",0xFFFFFF);
+        var bg = BWFace.getColor("BackgroundColor");
+        var fg = BWFace.getColor("ForegroundColor");
 
         dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
         if (hist.size()==0){
@@ -90,14 +72,9 @@ class AFGraph extends Ui.Drawable {
         var min0 = 100000;
         var max0 = 0.1;
         for (var i = start; i>=0; i--){
-            //var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
-
             if (hist[i].calories<min0) { min0 = hist[i].calories; }
             if (hist[i].calories>max0) { max0 = hist[i].calories; }
         }
-        //var m = new Time.Moment(Time.today().value());
-        //var t = Calendar.info(m, Time.FORMAT_MEDIUM);
-        //dc.drawText(x, y, font, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
 
         if (calories<min0) { min0 = calories; }
         if (calories>max0) { max0 = calories; }
@@ -116,13 +93,13 @@ class AFGraph extends Ui.Drawable {
             avrgAf += af;
             var h = height * hist[i].calories/max0;
             if (af<1){
-                color = BWFace.getProperty("SurplusColor",0x555555);
+                color = BWFace.getColor("SurplusColor");
             }
             else if (af>=threshold) {
-                color = BWFace.getProperty("DeficitColor",0xFFFFFF);
+                color = BWFace.getColor("DeficitColor");
             }
             else {
-                color = BWFace.getProperty("ActivityColor",0xAAAAAA);
+                color = BWFace.getColor("ActivityColor");
             }
             dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
             dc.fillRectangle(x, y-h, w/2, h);
@@ -162,39 +139,24 @@ class AFGraph extends Ui.Drawable {
         dc.drawLine(x1, y1+1, x2, y1+1);
 
          x = x0+padding/2;
-        //var min0 = 100000;
-        //var max0 = 0.1;
-        //x +=  offset+1;
-        //dc.setColor(BWFace.getProperty("DaysColor",0x555555),  Gfx.COLOR_TRANSPARENT);
-        //dc.setColor(0x000000,  Gfx.COLOR_TRANSPARENT);
         dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+
         for (var i = start; i>=0; i--){
             var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
-
-            //if (hist[i].calories<min0) { min0 = hist[i].calories; }
-            //if (hist[i].calories>max0) { max0 = hist[i].calories; }
             var vd =  t.day_of_week.toString().substring(0, 1);
             if (i <= start-1 && i>=0){
-                //dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
-                //dc.drawText(x+1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
-                //dc.drawText(x-1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
-                //dc.drawText(x-1, ty-1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
-                //dc.drawText(x-1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
-
-                //dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
                 dc.drawText(x, ty, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
             }
             x +=  offset;
         }
-
     }
 
     function whatColor(af,threshold){
         if (af<1){
-            return BWFace.getProperty("SurplusColor",0x555555);
+            return BWFace.getColor("SurplusColor");
         }
         else {
-             return af<=threshold ? BWFace.getProperty("ActivityColor",0xAAAAAA) : BWFace.getProperty("DeficitColor",0xFFFFFF);
+             return af<=threshold ? BWFace.getColor("ActivityColor") : BWFace.getColor("DeficitColor");
         }
     }
 }

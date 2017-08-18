@@ -1,0 +1,89 @@
+<strings>
+
+    <string id="AppName">BWFace Round</string>
+
+    <string id="Months">Янв  Фев  Мрт  Апр  Май  Июн  Июл  Авг  Сен  Окт  Нбр  Дек  </string>
+    <string id="WeekDays">Вс  Пн  Вт  Ср  Чтв Птн Сбт </string>
+
+    <string id="ColorSchemeTitle">Color Scheme</string>
+
+    <string id="ColorBlack">Тёмная</string>
+    <string id="ColorWhite">Белая</string>
+    <string id="ColorFruit">Фруктовая</string>
+
+    <string id="ActivityLeftFieldTitle">Левое поле</string>
+    <string id="ActivityMidFieldTitle">Среднее поле</string>
+    <string id="ActivityRightFieldTitle">Правое поле</string>
+    <string id="HintFieldTitle">Дополнительное поле</string>
+
+    <!-- Abbrevations -->
+
+    <string id="StepsTitle">шагов</string>
+    <string id="CaloriesTitle">ккал</string>
+    <string id="DistanceTitle">км</string>
+    <string id="DistanceMilesTitle">mi</string>
+    <string id="BPMTitle">уд/м</string>
+
+    <string id="SecondsTitle">сек</string>
+
+    <string id="SunriseTitle">восх</string>
+    <string id="SunsetTitle">закат</string>
+    <string id="AltitudeFeetTitle">фт</string>
+    <string id="AltitudeTitle">м</string>
+
+    <string id="TemperatureTitle">C</string>
+    <string id="TemperatureFahrTitle">F</string>
+    <string id="PressureTitle">кПа</string>
+    <string id="PressureMmHgTitle">ммрс</string>
+    <string id="PressurehPaTitle">гПа</string>
+    <string id="UserBMRTitle">ККал</string>
+
+    <string id="ActivityFactorTitle">убм</string>
+    <string id="FloorsClimbedTitle">этаж.</string>
+    <string id="ElevationTitle">м</string>
+    <string id="ElevationFeetTitle">фт</string>
+    <string id="ClimbedTitle">м</string>
+    <string id="ClimbedFeetTitle">фт</string>
+
+    <string id="SpeedTitle">км/ч</string>
+    <string id="SpeedFeetTitle">мил/ч</string>
+    <string id="CadenceTitle">об/м</string>
+
+    <!-- Properties -->
+
+    <string id="Steps">Шагов</string>
+    <string id="Calories">Калории</string>
+    <string id="Distance">Дистанция</string>
+    <string id="Seconds">Секунды</string>
+
+    <string id="Date">Только дата</string>
+    <string id="DateAndSuns">Дата/восход/закат</string>
+
+    <string id="Sunrise">Восход</string>
+    <string id="Sunset">Закат</string>
+    <string id="Altitude">Высота</string>
+
+    <string id="HeartRate">ЧСС</string>
+    <string id="Temperature">Температура</string>
+    <string id="Pressure">Давление кПа</string>
+    <string id="PressurehPa">Давление гПа</string>
+    <string id="PressureMmHg">Давление мм.рт.ст.</string>
+    <string id="UserBMR">Уровень основного обмена</string>
+
+    <string id="NotShow">Ничего</string>
+    <string id="Battery">Аккумулятор</string>
+    <string id="BatteryPhone">Аккумулятор/Телефон</string>
+    <string id="PhoneConnection">Телефон</string>
+    <string id="NotificationBatteryPhoneConnection">Уведомления/Аккум./Телефон</string>
+    <string id="NotificationPhoneConnection">Уведомления/Телефон</string>
+    <string id="Notification">Уведомления</string>
+
+    <string id="ActivityFactor">Коэффициент активности</string>
+    <string id="FloorsClimbed">Пройденных этажей</string>
+    <string id="Climbed">Общий подъем вверх</string>
+    <string id="Elevation">Подъем</string>
+
+    <string id="Speed">Скорость</string>
+    <string id="Cadence">Каденция</string>
+
+</strings>

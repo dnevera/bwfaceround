@@ -10,8 +10,6 @@ class SystemField extends Ui.Drawable {
     var locX;
     var locY;
 
-// 	var batterySize = [18,9];
-// 	var messageSize = [12,7];
     var framePadding = 2;
 
     var w = 18;
@@ -41,10 +39,6 @@ class SystemField extends Ui.Drawable {
         var battery     = systemStats.battery;
         var fbattery    =  battery.format("%d") + "%";
 
-//        var wm = messageSize[0];
-//        var w = batterySize[0];
-//        var h = batterySize[1];
-//        var hm = messageSize[1];
         var x = locX-w/2;
         var y = locY;
 
@@ -73,7 +67,7 @@ class SystemField extends Ui.Drawable {
         dc.drawRoundedRectangle(x, y, w, h, 2);
         dc.fillRoundedRectangle(x, y, w*battery/100, h, 2);
 
-        var xp = x+w+framePadding;
+        var xp = x+w+framePadding/2;
         var yp = y+h/2-2;
 
         var color = Sys.getDeviceSettings().phoneConnected ? btIconColor: 0x303030;

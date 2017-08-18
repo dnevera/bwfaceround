@@ -40,8 +40,8 @@
         <param name="justification">Gfx.TEXT_JUSTIFY_LEFT</param>
     </drawable>
 
-    <label  text="" id="HintLabel"  x="22" y="67"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="DateLabel"  x="220" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+    <label  text="" id="HintLabel"  x="20" y="67"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="DateLabel"  x="221" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
     <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
@@ -56,7 +56,7 @@
 
     <drawable class="SystemField">
         <param name="x">108</param>
-        <param name="y">218</param>
+        <param name="y">219</param>
         <param name="batteryWidth">18</param>
         <param name="batteryHeight">9</param>
         <param name="messageWidth">12</param>

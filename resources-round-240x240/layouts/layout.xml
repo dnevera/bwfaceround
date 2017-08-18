@@ -46,7 +46,7 @@
     <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text=":" id="ColumnLabel" x="122" y="48"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text=":" id="ColumnLabel" x="122" y="51"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="AM" id="H12Label"   x="122" y="127"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <label  text="0" id="MinutesLabel0" x="158" y="78" justification="Gfx.TEXT_JUSTIFY_CENTER" />

@@ -39,7 +39,7 @@ class BWFaceValue {
 	}
 
 	function info(id) {
-		var dict = {:scale=>1,:delim=>"",:title=>"", :format=>"%d", :prec=>2};
+		var dict = {:scale=>1,:delim=>"",:title=>"", :format=>"%d", :prec=>3};
 		switch (id) {
 			case BW_Distance: // distance
                 if (Sys.getDeviceSettings().distanceUnits == Sys.UNIT_STATUTE) {
@@ -49,6 +49,7 @@ class BWFaceValue {
                     dict[:title] = Ui.loadResource( Rez.Strings.DistanceTitle ).toUpper();
                 }
 				dict[:scale] = 10;
+				dict[:prec] = 2;
 				dict[:delim] = ",";
 				break;
 			case BW_Steps:
@@ -173,7 +174,7 @@ class BWFaceValue {
 			case BW_FloorsClimbed:
 			    if (Toybox.ActivityMonitor.Info has :floorsClimbed) {
 					value = Monitor.getInfo().floorsClimbed;
-					value = value == null ? "--" : value;
+					value = value == null ? "--" : value.format("%.0f");
 				}
 				else {
 					value = "--";

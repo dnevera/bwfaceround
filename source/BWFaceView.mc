@@ -20,39 +20,31 @@ class BWFaceHRView extends Ui.WatchFace {
     function onUpdate(dc) {
 
         var times = BWTime.current();
-        var font = Ui.loadResource(Rez.Fonts.TitleFont);
-        var sfont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
-        var color = BWFace.getProperty("HoursColor", 0xFFA500);
-        setForView("HourLabel0",times[0],color, null);
-        setForView("HourLabel1",times[1],color, null);
-        setForView("H12Label",  times[3],color, font);
+        var color = BWFace.getColor("HoursColor");
+        setForView("HourLabel0",times[0],color, BWFace.clockFont);
+        setForView("HourLabel1",times[1],color, BWFace.clockFont);
+        setForView("H12Label",  times[3],color, BWFace.titleFont);
 
-        color = BWFace.getProperty("TimeColonColor", 0xE0E0E0);
-        setForView("ColumnLabel",times[2],color, null);
+        color = BWFace.getColor("TimeColonColor");
+        setForView("ColumnLabel",times[2],color, BWFace.clockFont);
 
-        color = BWFace.getProperty("MinutesColor", 0x32CD32);
-        setForView("MinutesLabel0",times[4],color, null);
-        setForView("MinutesLabel1",times[5],color, null);
+        color = BWFace.getColor("MinutesColor");
+        setForView("MinutesLabel0",times[4],color, BWFace.smallClockFont);
+        setForView("MinutesLabel1",times[5],color, BWFace.smallClockFont);
 
-        color = BWFace.getProperty("ForegroundColor", 0x32CD32);
-        setForView("DayOfYearLabel","300",color, font);
-        setForView("WeekOfYearLabel","50",color, font);
-        setForView("DateLabel",calendar(),color, font);
+        color = BWFace.getColor("ForegroundColor");
+        var field  = new BWFaceValue();
+        var values = field.value(BWFace.getProperty("HintField", BW_SunriseSunset));
 
-        setForView("Active0","1",color, font);
-        setForView("Active00","28",color, sfont);
-        setForView("Active0Title","BPM",color, sfont);
+        setForView("HintLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
 
-        setForView("Active1","2",color, font);
-        setForView("Active10","00",color, sfont);
-        setForView("Active1Title","STEPS",color, sfont);
+        values = field.value(BW_SunriseSunset);
+        setForView("SSLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
 
-        setForView("Active2", "2",color, font);
-        setForView("Active20","400",color, sfont);
-        setForView("Active2Title","KCAL",color, sfont);
+        setForView("DateLabel",calendar(),color, BWFace.titleFont);
 
-        setForView("BmrLabel","3400",color, font);
+		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 
         View.onUpdate(dc);
     }
@@ -87,7 +79,6 @@ class BWFaceHRView extends Ui.WatchFace {
         view.setColor(color);
         view.setText(text);
         if (font!=null){
-            //var font = Ui.loadResource(Rez.Fonts.TitleFont);
             view.setFont(font);
         }
     }

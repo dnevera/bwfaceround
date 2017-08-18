@@ -1,45 +1,89 @@
 <strings>
 
-    <string id="AppName">BWFaceHR</string>
+    <string id="AppName">BWFace Round</string>
 
     <string id="Months">Jan  Feb  Mar  Apr  May  June July Aug  Sept Oct  Nov  Dec  </string>
     <string id="WeekDays">Sun Mon Tue Wed Thu Fri Sat </string>
 
-    <string id="BackgroundColorTitle">Background Color</string>
-    <string id="ForegroundColorTitle">Foreground Color</string>
-    <string id="MilitaryFormatTitle">Military Format for 24 Hour Time</string>
-
-    <string id="SurplusColorTitle">Surplus Color</string>
-    <string id="ActivityColorTitle">Activity Zone Color</string>
-    <string id="DeficitColorTitle">Deficit Color</string>
-    <string id="ForegroundColorTitle">Foreground Color</string>
-    <string id="HoursColorTitle">Hours Color</string>
-    <string id="TimeColonColorTitle">Time Colon Color</string>
-    <string id="MinutesColorTitle">Minutes Color</string>
+    <string id="ColorSchemeTitle">Color Scheme</string>
 
     <string id="ColorBlack">Black</string>
-    <string id="ColorDarkGray">Dark Gray</string>
-    <string id="ColorLightGray">Light Gray</string>
     <string id="ColorWhite">White</string>
-    <string id="ColorBlue">Blue</string>
-    <string id="ColorRed">Red</string>
+    <string id="ColorFruit">Fruit</string>
 
-    <string id="ColorMono">Monochrome</string>
-    <string id="ColorDark">Dark</string>
-    <string id="ColorLight">Light</string>
-    <string id="ColorBright">Bright</string>
+    <string id="ActivityLeftFieldTitle">Left Field</string>
+    <string id="ActivityMidFieldTitle">Middling Field</string>
+    <string id="ActivityRightFieldTitle">Right Field</string>
+    <string id="HintFieldTitle">Hint Field</string>
 
-    <string id="ColorGray56">Gray 56</string>
-    <string id="ColorCloudy">Cloudy</string>
-    <string id="ColorRedCheese">Red Cheese</string>
-    <string id="ColorLightDusk">Light Dusk</string>
-    <string id="ColorGeenApple">Geen Apple</string>
+    <!-- Abbrevations -->
 
-    <string id="ColorBlack">Black</string>
-    <string id="ColorDarkGray">Dark Gray</string>
-    <string id="ColorLightGray">Light Gray</string>
-    <string id="ColorWhite">White</string>
-    <string id="ColorBlue">Blue</string>
-    <string id="ColorRed">Red</string>
+    <string id="CaloriesTitle">kcal</string>
+    <string id="StepsTitle">steps</string>
+    <string id="DistanceTitle">km</string>
+    <string id="DistanceMilesTitle">mi</string>
+    <string id="BPMTitle">bpm</string>
+    <string id="SecondsTitle">sec</string>
+
+    <string id="SunriseTitle">SR</string>
+    <string id="SunsetTitle">SS</string>
+    <string id="AltitudeFeetTitle">alt ft</string>
+    <string id="AltitudeTitle">alt m</string>
+
+    <string id="TemperatureTitle">C</string>
+    <string id="TemperatureFahrTitle">F</string>
+    <string id="PressureTitle">kPa</string>
+    <string id="PressureMmHgTitle">mmHg</string>
+    <string id="PressurehPaTitle">hPa</string>
+    <string id="UserBMRTitle">BMR KC</string>
+
+    <string id="ActivityFactorTitle">bmr</string>
+    <string id="FloorsClimbedTitle">flrs</string>
+    <string id="ElevationTitle">m</string>
+    <string id="ElevationFeetTitle">ft</string>
+    <string id="ClimbedTitle">m</string>
+    <string id="ClimbedFeetTitle">ft</string>
+
+    <string id="SpeedTitle">km/h</string>
+    <string id="SpeedFeetTitle">mph</string>
+    <string id="CadenceTitle">rpm</string>
+
+    <!-- Properties -->
+
+    <string id="Steps">Steps</string>
+    <string id="Calories">Calories</string>
+    <string id="Distance">Distance</string>
+    <string id="Seconds">Seconds</string>
+
+    <string id="Date">Only date</string>
+    <string id="DateAndSuns">Date and sunrise/sunset</string>
+
+    <string id="Sunrise">Sunrise</string>
+    <string id="Sunset">Sunset</string>
+    <string id="SunriseSunset">Sunrise/Sunset</string>
+    <string id="Altitude">Altitude</string>
+
+    <string id="HeartRate">Heart Rate</string>
+    <string id="Temperature">Temperature</string>
+    <string id="Pressure">Pressure kPa</string>
+    <string id="PressurehPa">Pressure hPa</string>
+    <string id="PressureMmHg">Pressure mmHg</string>
+    <string id="UserBMR">Basal metabolic rate</string>
+
+    <string id="NotShow">Nothing shows</string>
+    <string id="Battery">Battery Status</string>
+    <string id="BatteryPhone">Battery/Phone</string>
+    <string id="PhoneConnection">Phone Connection</string>
+    <string id="NotificationBatteryPhoneConnection">Notification/Battery/Phone</string>
+    <string id="NotificationPhoneConnection">Notification/Phone</string>
+    <string id="Notification">Notification</string>
+
+    <string id="ActivityFactor">Activity Factor</string>
+    <string id="FloorsClimbed">Floors Climbed</string>
+    <string id="Climbed">Climbed</string>
+    <string id="Elevation">Elevation</string>
+
+    <string id="Speed">Speed</string>
+    <string id="Cadence">Cadence</string>
 
 </strings>

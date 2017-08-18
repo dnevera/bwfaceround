@@ -1,3 +1,4 @@
+using Toybox.WatchUi as Ui;
 using Toybox.Lang;
 using Toybox.System;
 using Toybox.Graphics as Gfx;
@@ -5,13 +6,62 @@ using Toybox.Application as App;
 using Toybox.UserProfile as User;
 using Toybox.Time.Gregorian as Calendar;
 using Toybox.Time as Time;
+using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
+
+    var clockFont      = Ui.loadResource(Rez.Fonts.ClockFont);
+    var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
+    var titleFont      = Ui.loadResource(Rez.Fonts.TitleFont);
+    var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
+
+    var colorScheme = {
+        0 => {
+                    "BackgroundColor" => 0x000000,
+                    "ForegroundColor" => 0xFFFFFF,
+                    "HoursColor"      => 0xFFFFFF,
+                    "TimeColonColor"  => 0xFFFFFF,
+                    "MinutesColor"    => 0xFFFFFF,
+                    "SurplusColor"    => 0x555555,
+                    "ActivityColor"   => 0xA0A0A0,
+                    "DeficitColor"    => 0xFFFFFF,
+                    "BatteryWarnColor" => 0xA0A0A0,
+                    "BatteryLowColor" => 0x555555
+                    },
+        1 => {
+                    "BackgroundColor" => 0xFFFFFF,
+                    "ForegroundColor" => 0x000000,
+                    "HoursColor"      => 0x000000,
+                    "TimeColonColor"  => 0x000000,
+                    "MinutesColor"    => 0x000000,
+                    "SurplusColor"    => 0x555555,
+                    "ActivityColor"   => 0xA0A0A0,
+                    "DeficitColor"    => 0x000000,
+                    "BatteryWarnColor" => 0xA0A0A0,
+                    "BatteryLowColor" => 0x555555
+                    },
+        2 => {
+                    "BackgroundColor" => 0x000000,
+                    "ForegroundColor" => 0xEFEFEF,
+                    "HoursColor"      => 0xFFA500,
+                    "TimeColonColor"  => 0xE0E0E0,
+                    "MinutesColor"    => 0x32CD32,
+                    "SurplusColor"    => 0x7F2400,
+                    "ActivityColor"   => 0xD06900,
+                    "DeficitColor"    => 0x247F00,
+                    "BatteryWarnColor" => 0xFFA500,
+                    "BatteryLowColor" => 0xF42416
+                    }
+    };
 
 	function getProperty(key,default_value) {
 		var v = App.getApp().getProperty(key);
 		return v == null ? default_value : v;
 	}
+
+    function getColor(color){
+        return colorScheme[getProperty("ColorScheme",0)][color];
+    }
 
 	function setProperty(key,value) {
 		App.getApp().setProperty(key, value);
@@ -96,5 +146,26 @@ module BWFace {
     		af = af == null ? 1 : af;
     		af = af < 1 ? 1 : af;
     		return bmrvalue * af ;
+    }
+
+    function bmrDiff(){
+		var calories = ActivityMonitor.getInfo().calories;
+		if (calories==null) {
+		    return 0;
+		}
+		var userBmr = BWFace.bmr();
+		return calories - userBmr;
+    }
+
+    function activityFactor(){
+		var calories = ActivityMonitor.getInfo().calories;
+		if (calories==null) {
+		    return 0;
+		}
+        var userBmr = BWFace.bmr();
+        if (userBmr==0){
+            return 0;
+        }
+        return calories/userBmr;
     }
 }

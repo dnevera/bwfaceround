@@ -20,39 +20,40 @@ class BWFaceHRView extends Ui.WatchFace {
     function onUpdate(dc) {
 
         var times = BWTime.current();
-        var font = Ui.loadResource(Rez.Fonts.TitleFont);
-        var sfont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
+        var clockFont = Ui.loadResource(Rez.Fonts.ClockFont);
+        var titlefont = Ui.loadResource(Rez.Fonts.TitleFont);
+        var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
         var color = BWFace.getProperty("HoursColor", 0xFFA500);
-        setForView("HourLabel0",times[0],color, null);
-        setForView("HourLabel1",times[1],color, null);
-        setForView("H12Label",  times[3],color, font);
+        setForView("HourLabel0",times[0],color, clockFont);
+        setForView("HourLabel1",times[1],color, clockFont);
+        setForView("H12Label",  times[3],color, titlefont);
 
         color = BWFace.getProperty("TimeColonColor", 0xE0E0E0);
-        setForView("ColumnLabel",times[2],color, null);
+        setForView("ColumnLabel",times[2],color, clockFont);
 
         color = BWFace.getProperty("MinutesColor", 0x32CD32);
-        setForView("MinutesLabel0",times[4],color, null);
-        setForView("MinutesLabel1",times[5],color, null);
+        setForView("MinutesLabel0",times[4],color, clockFont);
+        setForView("MinutesLabel1",times[5],color, clockFont);
 
         color = BWFace.getProperty("ForegroundColor", 0x32CD32);
-        setForView("DayOfYearLabel","300",color, font);
-        setForView("WeekOfYearLabel","50",color, font);
-        setForView("DateLabel",calendar(),color, font);
+        setForView("DateHintLabel","05:40 20:40",color, smallTitleFont);
+        //setForView("WeekOfYearLabel","50",color, titlefont);
+        setForView("DateLabel",calendar(),color, titlefont);
 
-        setForView("Active0","1",color, font);
-        setForView("Active00","28",color, sfont);
-        setForView("Active0Title","BPM",color, sfont);
+        setForView("Active0","1",color, titlefont);
+        setForView("Active00","28",color, smallTitleFont);
+        setForView("Active0Title","BPM",color, smallTitleFont);
 
-        setForView("Active1","2",color, font);
-        setForView("Active10","00",color, sfont);
-        setForView("Active1Title","STEPS",color, sfont);
+        setForView("Active1","2",color, titlefont);
+        setForView("Active10","00",color, smallTitleFont);
+        setForView("Active1Title","STEPS",color, smallTitleFont);
 
-        setForView("Active2", "2",color, font);
-        setForView("Active20","400",color, sfont);
-        setForView("Active2Title","KCAL",color, sfont);
+        setForView("Active2", "2",color, titlefont);
+        setForView("Active20","400",color, smallTitleFont);
+        setForView("Active2Title","KCAL",color, smallTitleFont);
 
-        setForView("BmrLabel","3400",color, font);
+        setForView("BmrLabel","3400",color, titlefont);
 
         View.onUpdate(dc);
     }

@@ -65,11 +65,11 @@ class BMRMeter extends Ui.Drawable {
 			dir =  Gfx.ARC_COUNTER_CLOCKWISE;
 		}
 
-        dc.drawArc(x, y, r, dir, start, end);
+        dc.drawArc(x, y, r+1, dir, start, end);
 
 		dc.setPenWidth(1);
 		var bg = BWFace.getProperty("BackgroundColor", 0x000000);
 		dc.setColor(bg,  bg);
-		dc.drawArc(x, y, r-width/2, dir, start, end);
+		dc.drawArc(x, y, r-width/2+1, dir, start+0.5, end+0.5);
     }
 }

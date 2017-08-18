@@ -10,6 +10,7 @@ class AFGraph extends Ui.Drawable {
     var locX;
     var locY;
     var height;
+    var barWidth;
     //var font;
 
     function initialize(params) {
@@ -21,6 +22,7 @@ class AFGraph extends Ui.Drawable {
         locX = params.get(:x);
         locY = params.get(:y);
         height = params.get(:height);
+        barWidth = params.get(:barWidth);
         //font = params.get(:font);
     }
 
@@ -35,9 +37,10 @@ class AFGraph extends Ui.Drawable {
         var calories = ActivityMonitor.getInfo().calories;
 
         //var font = Gfx.FONT_XTINY; //properties.fonts.infoTitleFontTiny;
-        var font = Ui.loadResource(Rez.Fonts.TitleFont);
+        var font = Ui.loadResource(Rez.Fonts.SmallTitleFont);
         var colSize = dc.getTextDimensions("W", font);
-        var w      = (colSize[0]+padding/2) * 2;
+        //var w      = (colSize[0]+padding/2) * 2;
+        var w      = (barWidth+padding/2) * 2;
         var offset = w/2+padding/2;
 
         var count;
@@ -52,7 +55,8 @@ class AFGraph extends Ui.Drawable {
 //        ) {
             count = 8;
             start = hist.size()-1;
-            shift = colSize[0]/2;
+            //shift = colSize[0]/2;
+            shift = barWidth/2;
 //        }
 //        else {
 //            count = 7;
@@ -62,39 +66,35 @@ class AFGraph extends Ui.Drawable {
 //        }
 
         var x0 = locX - (offset)*count/2 + shift;
-        var y = locY+colSize[1]+padding;
+        //var y = locY+colSize[1]+padding;
+        var y = locY;//+colSize[1]+padding;
         var x = x0;
+        var ty = y;//-colSize[1]-padding;
 
-        dc.setColor(BWFace.getProperty("ForegroundColor",0xFFFFFF),  Gfx.COLOR_TRANSPARENT);
+        var bg = BWFace.getProperty("BackgroundColor",0x000000);
+        var fg = BWFace.getProperty("ForegroundColor",0xFFFFFF);
+
+        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
         if (hist.size()==0){
-
             x +=  offset;
             for (var i = start0-1; i>=2; i--){
                 var m = new Time.Moment(Time.today().value()-3600*24*i);
                 var t = Calendar.info(m, Time.FORMAT_MEDIUM);
-                dc.drawText(x, y, font, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
-                dc.fillRectangle(x-colSize[0]/2, y-1, w/2, 1);
+                dc.drawText(x, ty, font, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
+                dc.fillRectangle(x-barWidth/2, y-1, w/2, 1);
                 x +=  offset;
             }
             return;
         }
 
-        x = x0+padding/2;
         var min0 = 100000;
         var max0 = 0.1;
-        //x +=  offset+1;
         for (var i = start; i>=0; i--){
-            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
+            //var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
 
             if (hist[i].calories<min0) { min0 = hist[i].calories; }
             if (hist[i].calories>max0) { max0 = hist[i].calories; }
-            var vd =  t.day_of_week.toString().substring(0, 1);
-            if (i <= start-1 && i>=0){
-                dc.drawText(x, y, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
-            }
-            x +=  offset;
         }
-
         //var m = new Time.Moment(Time.today().value());
         //var t = Calendar.info(m, Time.FORMAT_MEDIUM);
         //dc.drawText(x, y, font, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
@@ -106,7 +106,7 @@ class AFGraph extends Ui.Drawable {
 
         var bmr = BWFace.bmr();
 
-        x = x0-colSize[0]/2;
+        x = x0-barWidth/2;
         var avrg = 0;
         var avrgAf = 0;
         var avrgCount = 0;
@@ -149,17 +149,44 @@ class AFGraph extends Ui.Drawable {
 
         color =  whatColor(avrgAf,threshold);
 
-        var x1 = x0-colSize[0]/2;
+        var x1 = x0-barWidth/2;
         var x2 = x-w/2-1;
         var y1 = y-avrg;
 
-        dc.setColor(BWFace.getProperty("BackgroundColor",0x000000),  Gfx.COLOR_TRANSPARENT);
+        dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
         dc.drawLine(x1, y1+2, x2, y1+2);
         dc.drawLine(x1, y1-1, x2, y1-1);
 
         dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
         dc.drawLine(x1, y1, x2, y1);
         dc.drawLine(x1, y1+1, x2, y1+1);
+
+         x = x0+padding/2;
+        //var min0 = 100000;
+        //var max0 = 0.1;
+        //x +=  offset+1;
+        //dc.setColor(BWFace.getProperty("DaysColor",0x555555),  Gfx.COLOR_TRANSPARENT);
+        //dc.setColor(0x000000,  Gfx.COLOR_TRANSPARENT);
+        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+        for (var i = start; i>=0; i--){
+            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
+
+            //if (hist[i].calories<min0) { min0 = hist[i].calories; }
+            //if (hist[i].calories>max0) { max0 = hist[i].calories; }
+            var vd =  t.day_of_week.toString().substring(0, 1);
+            if (i <= start-1 && i>=0){
+                //dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
+                //dc.drawText(x+1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+                //dc.drawText(x-1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+                //dc.drawText(x-1, ty-1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+                //dc.drawText(x-1, ty+1, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+
+                //dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+                dc.drawText(x, ty, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+            }
+            x +=  offset;
+        }
+
     }
 
     function whatColor(af,threshold){

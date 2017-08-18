@@ -34,8 +34,8 @@ class AFGraph extends Ui.Drawable {
         var hist = ActivityMonitor.getHistory();
         var calories = ActivityMonitor.getInfo().calories;
 
-        var font = Ui.loadResource(Rez.Fonts.SmallTitleFont);
-        var colSize = dc.getTextDimensions("W", font);
+        //var font = BWFace.smallTitleFont;
+        var colSize = dc.getTextDimensions("W", BWFace.smallTitleFont);
         var w      = (barWidth+padding/2) * 2;
         var offset = w/2+padding/2;
 
@@ -62,7 +62,7 @@ class AFGraph extends Ui.Drawable {
             for (var i = start0-1; i>=2; i--){
                 var m = new Time.Moment(Time.today().value()-3600*24*i);
                 var t = Calendar.info(m, Time.FORMAT_MEDIUM);
-                dc.drawText(x, ty, font, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
+                dc.drawText(x, ty, BWFace.smallTitleFont, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
                 dc.fillRectangle(x-barWidth/2, y-1, w/2, 1);
                 x +=  offset;
             }
@@ -145,7 +145,7 @@ class AFGraph extends Ui.Drawable {
             var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
             var vd =  t.day_of_week.toString().substring(0, 1);
             if (i <= start-1 && i>=0){
-                dc.drawText(x, ty, font, vd, Gfx.TEXT_JUSTIFY_CENTER);
+                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
             }
             x +=  offset;
         }

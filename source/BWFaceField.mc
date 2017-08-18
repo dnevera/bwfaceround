@@ -26,15 +26,15 @@ class ActiveField extends Ui.Drawable {
     }
 
     function draw(dc){
-        var font = Ui.loadResource(Rez.Fonts.TitleFont);
-        var smallFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
+        //var font = BWFace.titleFont;//Ui.loadResource(Rez.Fonts.TitleFont);
+        //var smallFont = BWFace.smallTitleFont;//Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
         var field  = new BWFaceValue();
         var values = field.value(BWFace.getProperty(fid, BW_HeartRate));
 
-        var size = dc.getTextDimensions(values[0], font);
-        var fractSize = dc.getTextDimensions(values[1], smallFont);
-        var titleSize = dc.getTextDimensions(values[2], smallFont);
+        var size = dc.getTextDimensions(values[0], BWFace.titleFont);
+        var fractSize = dc.getTextDimensions(values[1], BWFace.smallTitleFont);
+        var titleSize = dc.getTextDimensions(values[2], BWFace.smallTitleFont);
 
         var y  = locY+titleSize[1]+titlePadding;
         var x  = locX;
@@ -52,13 +52,13 @@ class ActiveField extends Ui.Drawable {
         }
 
         dc.setColor(BWFace.getColor("ForegroundColor"),  Gfx.COLOR_TRANSPARENT);
-        dc.drawText(x,     y, font, values[0], justification);
+        dc.drawText(x,     y, BWFace.titleFont, values[0], justification);
 
         if (values[1].length()>0){
-            dc.drawText(fx,  fy, smallFont, values[1], justification);
+            dc.drawText(fx,  fy, BWFace.smallTitleFont, values[1], justification);
         }
 
-        dc.drawText(locX,  locY, smallFont, values[2], justification);
+        dc.drawText(locX,  locY, BWFace.smallTitleFont, values[2], justification);
     }
 
 }

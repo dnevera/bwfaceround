@@ -1,3 +1,4 @@
+using Toybox.WatchUi as Ui;
 using Toybox.Lang;
 using Toybox.System;
 using Toybox.Graphics as Gfx;
@@ -9,6 +10,11 @@ using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
 
+    var clockFont      = Ui.loadResource(Rez.Fonts.ClockFont);
+    var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
+    var titleFont      = Ui.loadResource(Rez.Fonts.TitleFont);
+    var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
+
     var colorScheme = {
         0 => {
                     "BackgroundColor" => 0x000000,
@@ -18,7 +24,9 @@ module BWFace {
                     "MinutesColor"    => 0xFFFFFF,
                     "SurplusColor"    => 0x555555,
                     "ActivityColor"   => 0xA0A0A0,
-                    "DeficitColor"    => 0xFFFFFF
+                    "DeficitColor"    => 0xFFFFFF,
+                    "BatteryWarnColor" => 0xA0A0A0,
+                    "BatteryLowColor" => 0x555555
                     },
         1 => {
                     "BackgroundColor" => 0xFFFFFF,
@@ -28,7 +36,9 @@ module BWFace {
                     "MinutesColor"    => 0x000000,
                     "SurplusColor"    => 0x555555,
                     "ActivityColor"   => 0xA0A0A0,
-                    "DeficitColor"    => 0x000000
+                    "DeficitColor"    => 0x000000,
+                    "BatteryWarnColor" => 0xA0A0A0,
+                    "BatteryLowColor" => 0x555555
                     },
         2 => {
                     "BackgroundColor" => 0x000000,
@@ -38,7 +48,9 @@ module BWFace {
                     "MinutesColor"    => 0x32CD32,
                     "SurplusColor"    => 0x7F2400,
                     "ActivityColor"   => 0xD06900,
-                    "DeficitColor"    => 0x247F00
+                    "DeficitColor"    => 0x247F00,
+                    "BatteryWarnColor" => 0xFFA500,
+                    "BatteryLowColor" => 0xF42416
                     }
     };
 

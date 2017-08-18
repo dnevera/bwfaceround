@@ -55,4 +55,13 @@
 
     <label  text="05:45 23:34" id="SSLabel" x="125" y="123" justification="Gfx.TEXT_JUSTIFY_LEFT"/>
 
+    <drawable class="SystemField">
+        <param name="x">96</param>
+        <param name="y">199</param>
+        <param name="batteryWidth">18</param>
+        <param name="batteryHeight">9</param>
+        <param name="messageWidth">12</param>
+        <param name="messageHeight">7</param>
+    </drawable>
+
 </layout>

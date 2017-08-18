@@ -20,35 +20,31 @@ class BWFaceHRView extends Ui.WatchFace {
     function onUpdate(dc) {
 
         var times = BWTime.current();
-        var clockFont = Ui.loadResource(Rez.Fonts.ClockFont);
-        var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
-        var titlefont = Ui.loadResource(Rez.Fonts.TitleFont);
-        var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
         var color = BWFace.getColor("HoursColor");
-        setForView("HourLabel0",times[0],color, clockFont);
-        setForView("HourLabel1",times[1],color, clockFont);
-        setForView("H12Label",  times[3],color, titlefont);
+        setForView("HourLabel0",times[0],color, BWFace.clockFont);
+        setForView("HourLabel1",times[1],color, BWFace.clockFont);
+        setForView("H12Label",  times[3],color, BWFace.titleFont);
 
         color = BWFace.getColor("TimeColonColor");
-        setForView("ColumnLabel",times[2],color, clockFont);
+        setForView("ColumnLabel",times[2],color, BWFace.clockFont);
 
         color = BWFace.getColor("MinutesColor");
-        setForView("MinutesLabel0",times[4],color, smallClockFont);
-        setForView("MinutesLabel1",times[5],color, smallClockFont);
+        setForView("MinutesLabel0",times[4],color, BWFace.smallClockFont);
+        setForView("MinutesLabel1",times[5],color, BWFace.smallClockFont);
 
         color = BWFace.getColor("ForegroundColor");
         var field  = new BWFaceValue();
         var values = field.value(BWFace.getProperty("HintField", BW_SunriseSunset));
 
-        setForView("HintLabel",values[0]+values[1]+" "+values[2],color, smallTitleFont);
+        setForView("HintLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
 
         values = field.value(BW_SunriseSunset);
-        setForView("SSLabel",values[0]+values[1]+" "+values[2],color, smallTitleFont);
+        setForView("SSLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
 
-        setForView("DateLabel",calendar(),color, titlefont);
+        setForView("DateLabel",calendar(),color, BWFace.titleFont);
 
-		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, Ui.loadResource(Rez.Fonts.TitleFont));
+		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 
         View.onUpdate(dc);
     }

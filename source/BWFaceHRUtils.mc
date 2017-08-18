@@ -9,13 +9,46 @@ using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
 
+    var colorScheme = {
+        0 => {
+                    "BackgroundColor" => 0x000000,
+                    "ForegroundColor" => 0xFFFFFF,
+                    "HoursColor"      => 0xFFFFFF,
+                    "TimeColonColor"  => 0xFFFFFF,
+                    "MinutesColor"    => 0xFFFFFF,
+                    "SurplusColor"    => 0x555555,
+                    "ActivityColor"   => 0xA0A0A0,
+                    "DeficitColor"    => 0xFFFFFF
+                    },
+        1 => {
+                    "BackgroundColor" => 0xFFFFFF,
+                    "ForegroundColor" => 0x000000,
+                    "HoursColor"      => 0x000000,
+                    "TimeColonColor"  => 0x000000,
+                    "MinutesColor"    => 0x000000,
+                    "SurplusColor"    => 0x555555,
+                    "ActivityColor"   => 0xA0A0A0,
+                    "DeficitColor"    => 0x000000
+                    },
+        2 => {
+                    "BackgroundColor" => 0x000000,
+                    "ForegroundColor" => 0xEFEFEF,
+                    "HoursColor"      => 0xFFA500,
+                    "TimeColonColor"  => 0xE0E0E0,
+                    "MinutesColor"    => 0x32CD32,
+                    "SurplusColor"    => 0x7F2400,
+                    "ActivityColor"   => 0xD06900,
+                    "DeficitColor"    => 0x247F00
+                    }
+    };
+
 	function getProperty(key,default_value) {
 		var v = App.getApp().getProperty(key);
 		return v == null ? default_value : v;
 	}
 
     function getColor(color){
-        return getProperty(color, 0xFFFFFF);
+        return colorScheme[getProperty("ColorScheme",0)][color];
     }
 
 	function setProperty(key,value) {

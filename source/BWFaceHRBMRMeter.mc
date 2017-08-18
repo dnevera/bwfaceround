@@ -70,6 +70,6 @@ class BMRMeter extends Ui.Drawable {
 		dc.setPenWidth(1);
 		var bg = BWFace.getColor("BackgroundColor");
 		dc.setColor(bg,  bg);
-		dc.drawArc(x, y, r-width/2+1, dir, start+0.5, end+0.5);
+		dc.drawArc(x, y, r-width/2+1, dir, start, end);
     }
 }

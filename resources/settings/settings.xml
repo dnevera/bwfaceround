@@ -1,84 +1,10 @@
 <settings>
 
-    <setting propertyKey="@Properties.SurplusColor" title="@Strings.SurplusColorTitle">
+    <setting propertyKey="@Properties.ColorScheme" title="@Strings.ColorSchemeTitle">
         <settingConfig type="list">
-            <listEntry value="0x555555">@Strings.ColorMono</listEntry>
-            <listEntry value="0x7F2400">@Strings.ColorDark</listEntry>
-            <listEntry value="0xA5654C">@Strings.ColorLight</listEntry>
-            <listEntry value="0xD8BDB2">@Strings.ColorBright</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.ActivityColor" title="@Strings.ActivityColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xA0A0A0">@Strings.ColorMono</listEntry>
-            <listEntry value="0xD06900">@Strings.ColorDark</listEntry>
-            <listEntry value="0xE57400">@Strings.ColorLight</listEntry>
-            <listEntry value="0xFF9931">@Strings.ColorBright</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.DeficitColor" title="@Strings.DeficitColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFFFFF">@Strings.ColorMono</listEntry>
-            <listEntry value="0x247F00">@Strings.ColorDark</listEntry>
-            <listEntry value="0x65A54C">@Strings.ColorLight</listEntry>
-            <listEntry value="0xBDD8B2">@Strings.ColorBright</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.BackgroundColor" title="@Strings.BackgroundColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
-            <listEntry value="0xAAAAAA">@Strings.ColorLightGray</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.ForegroundColor" title="@Strings.ForegroundColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xEFEFEF">@Strings.ColorCloudy</listEntry>
-            <listEntry value="0xE0E0E0">@Strings.ColorLightDusk</listEntry>
-            <listEntry value="0x0000FF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.HoursColor" title="@Strings.HoursColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFA500">@Strings.ColorRedCheese</listEntry>
-            <listEntry value="0x32CD32">@Strings.ColorGeenApple</listEntry>
-            <listEntry value="0x0000FF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.TimeColonColor" title="@Strings.TimeColonColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xE0E0E0">@Strings.ColorLightDusk</listEntry>
-            <listEntry value="0xEFEFEF">@Strings.ColorCloudy</listEntry>
-            <listEntry value="0xFFA500">@Strings.ColorRedCheese</listEntry>
-            <listEntry value="0x32CD32">@Strings.ColorGeenApple</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0x0000FF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.MinutesColor" title="@Strings.MinutesColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFA500">@Strings.ColorRedCheese</listEntry>
-            <listEntry value="0x32CD32">@Strings.ColorGeenApple</listEntry>
-            <listEntry value="0x0000FF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
+            <listEntry value="0">@Strings.ColorBlack</listEntry>
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorFruit</listEntry>
         </settingConfig>
     </setting>
 
@@ -94,7 +20,7 @@
             <listEntry value="2">@Strings.Calories</listEntry>
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
-            <listEntry value="3">@Strings.Seconds</listEntry>
+            <!--listEntry value="3">@Strings.Seconds</listEntry-->
             <listEntry value="16">@Strings.Speed</listEntry>
             <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
@@ -112,7 +38,7 @@
             <listEntry value="2">@Strings.Calories</listEntry>
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
-            <listEntry value="3">@Strings.Seconds</listEntry>
+            <!--listEntry value="3">@Strings.Seconds</listEntry-->
             <listEntry value="16">@Strings.Speed</listEntry>
             <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
@@ -130,7 +56,7 @@
             <listEntry value="2">@Strings.Calories</listEntry>
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
-            <listEntry value="3">@Strings.Seconds</listEntry>
+            <!--listEntry value="3">@Strings.Seconds</listEntry-->
             <listEntry value="16">@Strings.Speed</listEntry>
             <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
@@ -138,7 +64,7 @@
 
     <setting propertyKey="@Properties.HintField" title="@Strings.HintFieldTitle">
         <settingConfig type="list">
-            <listEntry value="3">@Strings.Seconds</listEntry>
+            <!--listEntry value="3">@Strings.Seconds</listEntry-->
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
             <listEntry value="8">@Strings.Temperature</listEntry>
             <listEntry value="9">@Strings.Pressure</listEntry>
@@ -147,8 +73,8 @@
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
+    <!--setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
         <settingConfig type="boolean" />
-    </setting>
+    </setting-->
 
 </settings>

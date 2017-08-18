@@ -32,8 +32,6 @@ class ActiveField extends Ui.Drawable {
         var field  = new BWFaceValue();
         var values = field.value(BWFace.getProperty(fid, BW_HeartRate));
 
-        Sys.println("ActiveField id = " + fid + " locX = "+locX + " v= [" + values[0]+"], ["+values[1]+"] "+values[2] + " justification = " + justification);
-
         var size = dc.getTextDimensions(values[0], font);
         var fractSize = dc.getTextDimensions(values[1], smallFont);
         var titleSize = dc.getTextDimensions(values[2], smallFont);

@@ -23,7 +23,6 @@ class ActiveField extends Ui.Drawable {
         justification = params.get(:justification);
         titlePadding = params.get(:titlePadding);
         fid = params.get(:fid);
-        //fid =  BWFace.getProperty(params.get(:fid), BW_HeartRate);
     }
 
     function draw(dc){
@@ -44,15 +43,12 @@ class ActiveField extends Ui.Drawable {
         var fx = locX;
         var fy = y+size[1]/2-fractSize[1]/2;
         if (justification == Gfx.TEXT_JUSTIFY_LEFT) {
-            //x = x-size[0];
             fx = x + size[0];
         }
         else if (justification == Gfx.TEXT_JUSTIFY_RIGHT) {
             x -= fractSize[0];
-            //fx = x + fractSize[0];
         }
         else {
-            //fx += fractSize[0]/2;
             x -= (fractSize[0]+size[0])/2 - size[0]/2;
             fx = x + fractSize[0]/2+size[0]/2;
         }
@@ -64,7 +60,6 @@ class ActiveField extends Ui.Drawable {
             dc.drawText(fx,  fy, smallFont, values[1], justification);
         }
 
-        //dc.drawText(locX,  locY+size[1]+titlePadding, smallFont, values[2], justification);
         dc.drawText(locX,  locY, smallFont, values[2], justification);
     }
 

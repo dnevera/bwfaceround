@@ -19,4 +19,6 @@
     <property id="ActivityMidField"   type="number">1</property>
     <property id="ActivityRightField" type="number">2</property>
 
+    <property id="HintField" type="number">12</property>
+
 </properties>

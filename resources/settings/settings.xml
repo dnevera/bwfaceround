@@ -84,6 +84,7 @@
 
     <setting propertyKey="@Properties.ActivityLeftField" title="@Strings.ActivityLeftFieldTitle">
         <settingConfig type="list">
+            <listEntry value="7">@Strings.HeartRate</listEntry>
             <listEntry value="0">@Strings.Distance</listEntry>
             <listEntry value="1">@Strings.Steps</listEntry>
             <listEntry value="15">@Strings.Climbed</listEntry>
@@ -94,13 +95,6 @@
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
             <listEntry value="3">@Strings.Seconds</listEntry>
-            <listEntry value="4">@Strings.Sunrise</listEntry>
-            <listEntry value="5">@Strings.Sunset</listEntry>
-            <listEntry value="7">@Strings.HeartRate</listEntry>
-            <listEntry value="8">@Strings.Temperature</listEntry>
-            <listEntry value="9">@Strings.Pressure</listEntry>
-            <listEntry value="1001">@Strings.PressurehPa</listEntry>
-            <listEntry value="10">@Strings.PressureMmHg</listEntry>
             <listEntry value="16">@Strings.Speed</listEntry>
             <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
@@ -108,6 +102,7 @@
 
     <setting propertyKey="@Properties.ActivityMidField" title="@Strings.ActivityMidFieldTitle">
         <settingConfig type="list">
+            <listEntry value="7">@Strings.HeartRate</listEntry>
             <listEntry value="0">@Strings.Distance</listEntry>
             <listEntry value="1">@Strings.Steps</listEntry>
             <listEntry value="15">@Strings.Climbed</listEntry>
@@ -118,13 +113,6 @@
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
             <listEntry value="3">@Strings.Seconds</listEntry>
-            <listEntry value="4">@Strings.Sunrise</listEntry>
-            <listEntry value="5">@Strings.Sunset</listEntry>
-            <listEntry value="7">@Strings.HeartRate</listEntry>
-            <listEntry value="8">@Strings.Temperature</listEntry>
-            <listEntry value="9">@Strings.Pressure</listEntry>
-            <listEntry value="1001">@Strings.PressurehPa</listEntry>
-            <listEntry value="10">@Strings.PressureMmHg</listEntry>
             <listEntry value="16">@Strings.Speed</listEntry>
             <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
@@ -132,6 +120,7 @@
 
     <setting propertyKey="@Properties.ActivityRightField" title="@Strings.ActivityRightFieldTitle">
         <settingConfig type="list">
+            <listEntry value="7">@Strings.HeartRate</listEntry>
             <listEntry value="0">@Strings.Distance</listEntry>
             <listEntry value="1">@Strings.Steps</listEntry>
             <listEntry value="13">@Strings.FloorsClimbed</listEntry>
@@ -142,15 +131,19 @@
             <listEntry value="11">@Strings.UserBMR</listEntry>
             <listEntry value="12">@Strings.ActivityFactor</listEntry>
             <listEntry value="3">@Strings.Seconds</listEntry>
-            <listEntry value="4">@Strings.Sunrise</listEntry>
-            <listEntry value="5">@Strings.Sunset</listEntry>
-            <listEntry value="7">@Strings.HeartRate</listEntry>
+            <listEntry value="16">@Strings.Speed</listEntry>
+            <listEntry value="18">@Strings.Cadence</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.HintField" title="@Strings.HintFieldTitle">
+        <settingConfig type="list">
+            <listEntry value="3">@Strings.Seconds</listEntry>
+            <listEntry value="12">@Strings.ActivityFactor</listEntry>
             <listEntry value="8">@Strings.Temperature</listEntry>
             <listEntry value="9">@Strings.Pressure</listEntry>
             <listEntry value="1001">@Strings.PressurehPa</listEntry>
             <listEntry value="10">@Strings.PressureMmHg</listEntry>
-            <listEntry value="16">@Strings.Speed</listEntry>
-            <listEntry value="18">@Strings.Cadence</listEntry>
         </settingConfig>
     </setting>
 

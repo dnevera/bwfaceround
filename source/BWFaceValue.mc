@@ -25,8 +25,9 @@ enum {
 	BW_Climbed       = 15,
 	BW_Speed         = 16,
 	//BW_AverageSpeed  = 17,
-	BW_Cadence         = 18
+	BW_Cadence         = 18,
 	//BW_AverageCadence  = 19
+	BW_SunriseSunset     = 1004
 }
 
 class BWFaceValue {
@@ -62,9 +63,15 @@ class BWFaceValue {
 			case BW_Sunrise:
 				dict[:title] =  Ui.loadResource( Rez.Strings.SunriseTitle ).toUpper();
 				break;
+
 			case BW_Sunset:
 				dict[:title] =  Ui.loadResource( Rez.Strings.SunsetTitle ).toUpper();
 				break;
+
+			case BW_SunriseSunset:
+				dict[:title] =  "";
+				break;
+
 			case BW_Altitude:
 			    if (Sys.getDeviceSettings().elevationUnits == Sys.UNIT_STATUTE){
 				    dict[:title] = Ui.loadResource( Rez.Strings.AltitudeFeetTitle ).toUpper();
@@ -73,9 +80,11 @@ class BWFaceValue {
 				    dict[:title] = Ui.loadResource( Rez.Strings.AltitudeTitle ).toUpper();
 				}
 				break;
+
 			case BW_HeartRate:
 				dict[:title] = Ui.loadResource( Rez.Strings.BPMTitle ).toUpper();
 				break;
+
 			case BW_Temperature:
                 if (Sys.getDeviceSettings().temperatureUnits == Sys.UNIT_STATUTE) {
                      dict[:title] = Ui.loadResource( Rez.Strings.TemperatureFahrTitle ).toUpper();
@@ -84,18 +93,23 @@ class BWFaceValue {
                      dict[:title]= Ui.loadResource( Rez.Strings.TemperatureTitle ).toUpper();
                 }
 				break;
+
 			case BW_Pressure:
 				dict[:title] = Ui.loadResource( Rez.Strings.PressureTitle ).toUpper();
 				break;
+
 			case BW_PressurehPa:
 				dict[:title] = Ui.loadResource( Rez.Strings.PressurehPaTitle ).toUpper();
 				break;
+
 			case BW_PressureMmHg:
 				dict[:title] = Ui.loadResource( Rez.Strings.PressureMmHgTitle ).toUpper();
 				break;
+
 			case BW_UserBMR :
 				dict[:title] = Ui.loadResource( Rez.Strings.UserBMRTitle ).toUpper();
 				break;
+
 			case BW_ActivityFactor :
 				dict[:title] = Ui.loadResource( Rez.Strings.ActivityFactorTitle ).toUpper();
 				dict[:scale] = 10;
@@ -105,6 +119,7 @@ class BWFaceValue {
 			case BW_FloorsClimbed :
 				dict[:title] = Ui.loadResource( Rez.Strings.FloorsClimbedTitle ).toUpper();
 				break;
+
 			case BW_Climbed :
 			    if (Sys.getDeviceSettings().elevationUnits == Sys.UNIT_STATUTE){
 				    dict[:title] = Ui.loadResource( Rez.Strings.ClimbedFeetTitle ).toUpper();
@@ -113,6 +128,7 @@ class BWFaceValue {
 				    dict[:title] = Ui.loadResource(Rez.Strings.ClimbedTitle  ).toUpper();
 				}
 				break;
+
 			case BW_Elevation :
                 if (Sys.getDeviceSettings().elevationUnits == Sys.UNIT_STATUTE) {
                      dict[:title] = Ui.loadResource( Rez.Strings.ElevationFeetTitle ).toUpper();
@@ -199,6 +215,10 @@ class BWFaceValue {
 
 			case BW_Sunset:
 				value = sunset();
+				break;
+
+			case BW_SunriseSunset:
+				value = sunrise()+" "+sunset();
 				break;
 
 			case BW_Altitude:
@@ -298,8 +318,6 @@ class BWFaceValue {
 		var inf = info(id);
 
 		if (!(value instanceof Toybox.Lang.String)){
-            //var v = BWFace.decimals(value,1);
-            //value = [v[0].format("%1.0f"),inf[:delim]+v[1].format("%1.0f")];
             value = BWFace.decFields(value,inf[:delim],inf[:scale],inf[:prec]);
             if (value[0].length()>=3){
                 value[1] = value[0].substring(1, value[0].length())+value[1];
@@ -324,12 +342,6 @@ class BWFaceValue {
 		        case 4:
     		        value = [value.substring(0, 2),value.substring(2, 5)];
 		        break;
-//		        case 5:
-//    		        value = [value.substring(0, 1),value.substring(1, 5)];
-//		        break;
-//		        case 6:
-//    		        value = [value.substring(0, 2),value.substring(2, 6)];
-//		        break;
 		        default:
     		        value = [value.substring(0, 1), value.substring(1, value.length())];
 		        break;

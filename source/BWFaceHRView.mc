@@ -21,6 +21,7 @@ class BWFaceHRView extends Ui.WatchFace {
 
         var times = BWTime.current();
         var clockFont = Ui.loadResource(Rez.Fonts.ClockFont);
+        var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
         var titlefont = Ui.loadResource(Rez.Fonts.TitleFont);
         var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
@@ -33,37 +34,19 @@ class BWFaceHRView extends Ui.WatchFace {
         setForView("ColumnLabel",times[2],color, clockFont);
 
         color = BWFace.getColor("MinutesColor");
-        setForView("MinutesLabel0",times[4],color, clockFont);
-        setForView("MinutesLabel1",times[5],color, clockFont);
+        setForView("MinutesLabel0",times[4],color, smallClockFont);
+        setForView("MinutesLabel1",times[5],color, smallClockFont);
 
         color = BWFace.getColor("ForegroundColor");
-        setForView("DateHintLabel","05:40 20:40",color, smallTitleFont);
+        var field  = new BWFaceValue();
+        var values = field.value(BWFace.getProperty("HintField", BW_SunriseSunset));
+
+        setForView("HintLabel",values[0]+values[1]+" "+values[2],color, smallTitleFont);
+
+        values = field.value(BW_SunriseSunset);
+        setForView("SSLabel",values[0]+values[1]+" "+values[2],color, smallTitleFont);
+
         setForView("DateLabel",calendar(),color, titlefont);
-
-        //
-        // Configurable fields
-        //
-
-//		var leftID  = BWFace.getProperty("ActivityLeftField", BW_HeartRate);
-//		var midID   = BWFace.getProperty("ActivityMidField",  BW_Steps);
-//		var rightID = BWFace.getProperty("ActivityRightField",BW_Calories);
-
-//        var field = new BWFaceValue();
-//
-//        var values = field.value(leftID);
-//        //setForView("Active0",     values[0], color, titlefont);
-//        //setForView("Active00",    values[1], color, smallTitleFont);
-//        //setForView("Active0Title",values[2], color, smallTitleFont);
-//
-//        values = field.value(midID);
-//        setForView("Active1",     values[0], color, titlefont);
-//        setForView("Active10",    values[1], color, smallTitleFont);
-//        setForView("Active1Title",values[2], color, smallTitleFont);
-//
-//        values = field.value(rightID);
-//        setForView("Active2",     values[0], color, titlefont);
-//        setForView("Active20",    values[1], color, smallTitleFont);
-//        setForView("Active2Title",values[2], color, smallTitleFont);
 
 		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, Ui.loadResource(Rez.Fonts.TitleFont));
 

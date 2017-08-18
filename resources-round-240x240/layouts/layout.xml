@@ -13,7 +13,7 @@
     <label  text=""  id="BmrLabel"      x="center"  y="6"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
 
     <drawable class="ActiveLeft">
-        <param name="x">90</param>
+        <param name="x">88</param>
         <param name="y">31</param>
         <param name="titlePadding">-2</param>
         <param name="fid">"ActivityLeftField"</param>
@@ -29,24 +29,26 @@
     </drawable>
 
     <drawable class="ActiveRight">
-        <param name="x">150</param>
+        <param name="x">152</param>
         <param name="y">31</param>
         <param name="titlePadding">-2</param>
         <param name="fid">"ActivityRightField"</param>
         <param name="justification">Gfx.TEXT_JUSTIFY_LEFT</param>
     </drawable>
 
-    <label  text="" id="DateHintLabel"  x="20" y="70"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="DateLabel"      x="220" y="64" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+    <label  text="" id="HintLabel"  x="22" y="67"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="DateLabel"  x="220" y="64" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
     <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text=":" id="ColumnLabel" x="121" y="70"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="AM" id="H12Label"   x="121" y="82"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text=":" id="ColumnLabel" x="122" y="48"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label"   x="122" y="127"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="0" id="MinutesLabel0" x="160" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="MinutesLabel1" x="206" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel0" x="158" y="78" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel1" x="192" y="78" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text="05:45 23:34" id="SSLabel" x="140" y="134" justification="Gfx.TEXT_JUSTIFY_LEFT"/>
 
     <drawable class="BMRMeter">
         <param name="width">6</param>

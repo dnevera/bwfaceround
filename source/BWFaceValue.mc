@@ -115,6 +115,7 @@ class BWFaceValue {
 				dict[:title] = Ui.loadResource( Rez.Strings.ActivityFactorTitle ).toUpper();
 				dict[:scale] = 10;
 				dict[:delim] = ",";
+				dict[:prec] = 2;
 
 				break;
 			case BW_FloorsClimbed :

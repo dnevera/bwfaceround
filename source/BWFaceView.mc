@@ -35,14 +35,30 @@ class BWFaceHRView extends Ui.WatchFace {
 
         color = BWFace.getColor("ForegroundColor");
         var field  = new BWFaceValue();
-        var values = field.value(BWFace.getProperty("HintField", BW_SunriseSunset));
+        var values = field.value(BWFace.getProperty("HintField", BW_ActivityFactor));
 
-        setForView("HintLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
+        var dt = calendar();
+        var dtSize = dc.getTextDimensions(dt, BWFace.titleFont);
+
+        var txt = values[0]+values[1];
+        var title = values[2];
+        var size = dc.getTextDimensions(txt, BWFace.titleFont);
+        var tsize = dc.getTextDimensions(title, BWFace.smallTitleFont);
+
+        var hint = setForView("HintLabel", txt, color, BWFace.titleFont);
+
+        if ((hint.locX+size[0]+tsize[0])<(dc.getWidth()-dtSize[0])-5){
+            var hintTitle = setForView("HintLabelTitle", title, color, BWFace.smallTitleFont);
+            hintTitle.locX = hint.locX + size[0];
+        }
+        else {
+            setForView("HintLabelTitle", "", color, BWFace.smallTitleFont);
+        }
+
+        setForView("DateLabel", dt, color, BWFace.titleFont);
 
         values = field.value(BW_SunriseSunset);
-        setForView("SSLabel",values[0]+values[1]+" "+values[2],color, BWFace.smallTitleFont);
-
-        setForView("DateLabel",calendar(),color, BWFace.titleFont);
+        setForView("SSLabel",values[0]+values[1]+" "+values[2], color, BWFace.smallTitleFont);
 
 		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 
@@ -81,6 +97,7 @@ class BWFaceHRView extends Ui.WatchFace {
         if (font!=null){
             view.setFont(font);
         }
+        return view;
     }
 
     function onHide() {}

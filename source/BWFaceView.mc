@@ -24,7 +24,8 @@ class BWFaceHRView extends Ui.WatchFace {
         var color = BWFace.getColor("HoursColor");
         setForView("HourLabel0",times[0],color, BWFace.clockFont);
         setForView("HourLabel1",times[1],color, BWFace.clockFont);
-        setForView("H12Label",  times[3],color, BWFace.titleFont);
+        setForView("H12Label0",  times[3].substring(0,1), color, BWFace.titleFont);
+        setForView("H12Label1",  times[3].substring(1,2), color, BWFace.titleFont);
 
         color = BWFace.getColor("TimeColonColor");
         setForView("ColumnLabel",times[2],color, BWFace.clockFont);
@@ -57,7 +58,7 @@ class BWFaceHRView extends Ui.WatchFace {
         }
 
         values = field.value(BW_SunriseSunset);
-        setForView("SSLabel",values[0]+values[1]+" "+values[2], color, BWFace.smallTitleFont);
+        setForView("SSLabel",values[0]+values[1]+values[2], color, BWFace.smallDigitsFont);
 
 		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 

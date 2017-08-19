@@ -12,6 +12,7 @@ module BWFace {
 
     var clockFont      = Ui.loadResource(Rez.Fonts.ClockFont);
     var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
+    var smallDigitsFont = Ui.loadResource(Rez.Fonts.SmallDigitsFont);
     var titleFont      = Ui.loadResource(Rez.Fonts.TitleFont);
     var smallTitleFont = Ui.loadResource(Rez.Fonts.SmallTitleFont);
 

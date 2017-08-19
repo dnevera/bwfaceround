@@ -36,6 +36,7 @@ module BWTime {
                 times[0] = "";
                 times[1] = hour.format("%1.0f");
             }
+            times[2] = "";
         }
 
         var min = clockTime.min;

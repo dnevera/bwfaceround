@@ -1,6 +1,7 @@
 <fonts>
     <font id ="ClockFont" filename="clock-font.fnt" filter="0123456789:/" antialias="true"/>
     <font id ="SmallClockFont" filename="clock-font-small.fnt" filter="0123456789:/" antialias="true"/>
+    <font id ="SmallDigitsFont" filename="digits-font-small.fnt" filter="0123456789,.:/ " antialias="true"/>
     <font id ="TitleFont" filename="title-font.fnt" antialias="true"/>
     <font id ="SmallTitleFont" filename="title-font-small.fnt" antialias="true"/>
 </fonts>

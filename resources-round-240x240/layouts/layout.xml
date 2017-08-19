@@ -44,12 +44,13 @@
     <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <label  text=":" id="ColumnLabel" x="122" y="51"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="AM" id="H12Label"   x="122" y="127"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label0"  x="122" y="87"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label1"  x="122" y="110"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <label  text="0" id="MinutesLabel0" x="158" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="MinutesLabel1" x="192" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="05:45 23:34" id="SSLabel" x="140" y="134" justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="05:45 23:34" id="SSLabel" x="220" y="134" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
 
     <drawable class="SystemField">
         <param name="x">108</param>

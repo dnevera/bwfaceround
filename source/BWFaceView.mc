@@ -46,16 +46,15 @@ class BWFaceHRView extends Ui.WatchFace {
         var tsize = dc.getTextDimensions(title, BWFace.smallTitleFont);
 
         var hint = setForView("HintLabel", txt, color, BWFace.titleFont);
+        var date = setForView("DateLabel", dt, color, BWFace.titleFont);
 
-        if ((hint.locX+size[0]+tsize[0])<(dc.getWidth()-dtSize[0])-5){
+        if ((hint.locX+size[0]+tsize[0])<(date.locX-dtSize[0])){
             var hintTitle = setForView("HintLabelTitle", title, color, BWFace.smallTitleFont);
             hintTitle.locX = hint.locX + size[0];
         }
         else {
             setForView("HintLabelTitle", "", color, BWFace.smallTitleFont);
         }
-
-        setForView("DateLabel", dt, color, BWFace.titleFont);
 
         values = field.value(BW_SunriseSunset);
         setForView("SSLabel",values[0]+values[1]+" "+values[2], color, BWFace.smallTitleFont);

@@ -10,10 +10,6 @@
         <param name="y">184</param>
     </drawable>
 
-    <drawable class="BMRMeter">
-        <param name="width">6</param>
-    </drawable>
-
     <label  text=""  id="BmrLabel"      x="center"  y="7"  justification="Gfx.TEXT_JUSTIFY_CENTER"/>
 
     <drawable class="ActiveLeft">
@@ -62,6 +58,10 @@
         <param name="batteryHeight">9</param>
         <param name="messageWidth">12</param>
         <param name="messageHeight">7</param>
+    </drawable>
+
+    <drawable class="BMRMeter">
+        <param name="width">6</param>
     </drawable>
 
 </layout>

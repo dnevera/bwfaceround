@@ -50,7 +50,7 @@
     <label  text="0" id="MinutesLabel0" x="142" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="MinutesLabel1" x="172" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="" id="SSLabel" x="200" y="123" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+    <label  text="" id="SSLabel" x="200" y="121" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
 
     <drawable class="SystemField">
         <param name="x">96</param>

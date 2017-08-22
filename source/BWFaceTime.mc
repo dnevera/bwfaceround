@@ -39,17 +39,17 @@ module BWTime {
             times[2] = "";
         }
 
-        var min = clockTime.min;
-        //var min = clockTime.sec;
+        //var min = clockTime.min;
+        var min = clockTime.sec;
 
         var m = min.format("%02.0f");
         times[4] = m.substring(0,1);
         times[5] = m.substring(1,2);
 
-        //min = clockTime.sec % 24;
-        //m = min.format("%02.0f");
-        //times[0] = m.substring(0,1);
-        //times[1] = m.substring(1,2);
+        min = clockTime.sec % 24;
+        m = min.format("%02.0f");
+        times[0] = m.substring(0,1);
+        times[1] = m.substring(1,2);
 
         return times;
    }

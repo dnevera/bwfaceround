@@ -9,16 +9,18 @@ char id=44 x=4 y=28 width=6 height=8 xoffset=-1 yoffset=11 xadvance=5 page=0 chn
 char id=45 x=10 y=28 width=8 height=6 xoffset=-1 yoffset=8 xadvance=8 page=0 chnl=0
 char id=46 x=4 y=36 width=6 height=6 xoffset=-1 yoffset=12 xadvance=5 page=0 chnl=0
 char id=47 x=4 y=42 width=10 height=20 xoffset=-1 yoffset=0 xadvance=9 page=0 chnl=0
-char id=48 x=4 y=62 width=12 height=16 xoffset=0 yoffset=2 xadvance=13 page=0 chnl=0
-char id=49 x=4 y=78 width=12 height=16 xoffset=-1 yoffset=2 xadvance=10 page=0 chnl=0
-char id=50 x=4 y=94 width=12 height=16 xoffset=-1 yoffset=2 xadvance=12 page=0 chnl=0
-char id=51 x=4 y=110 width=12 height=16 xoffset=-1 yoffset=2 xadvance=12 page=0 chnl=0
-char id=52 x=20 y=0 width=12 height=16 xoffset=-1 yoffset=2 xadvance=12 page=0 chnl=0
-char id=53 x=20 y=16 width=12 height=16 xoffset=-1 yoffset=2 xadvance=12 page=0 chnl=0
-char id=54 x=20 y=32 width=12 height=16 xoffset=0 yoffset=2 xadvance=13 page=0 chnl=0
+
+char id=48 x=4 y=62 width=12 height=16  xoffset=-1 yoffset=2  xadvance=11 page=0 chnl=0
+char id=49 x=4 y=78 width=12 height=16  xoffset=1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=50 x=4 y=94 width=12 height=16  xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=51 x=4 y=110 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=52 x=20 y=0 width=12 height=16  xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=53 x=20 y=16 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=54 x=20 y=32 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
 char id=55 x=20 y=48 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
-char id=56 x=20 y=64 width=12 height=16 xoffset=0 yoffset=2 xadvance=13 page=0 chnl=0
-char id=57 x=20 y=80 width=12 height=16 xoffset=-1 yoffset=2 xadvance=13 page=0 chnl=0
+char id=56 x=20 y=64 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+char id=57 x=20 y=80 width=12 height=16 xoffset=-1 yoffset=2 xadvance=11 page=0 chnl=0
+
 char id=58 x=14 y=42 width=6 height=12 xoffset=0 yoffset=6 xadvance=6 page=0 chnl=0
 char id=59 x=20 y=96 width=6 height=12 xoffset=-1 yoffset=7 xadvance=6 page=0 chnl=0
 char id=65 x=20 y=108 width=12 height=16 xoffset=0 yoffset=2 xadvance=13 page=0 chnl=0

@@ -25,13 +25,13 @@ class BWFaceHRView extends Ui.WatchFace {
     }
 
     function onPartialUpdate(dc) {
-        secondsUpdate(dc, BWFace.titleFont, true);
+        secondsUpdate(dc, true);
 	}
 
 	var seconds = null;
     var secondsView = null;
 
-    function secondsUpdate(dc, font, clipping){
+    function secondsUpdate(dc, clipping){
 
         if (!isSeccondShown) {
             return;
@@ -47,11 +47,11 @@ class BWFaceHRView extends Ui.WatchFace {
 
         if (seconds != null ){
             dc.setColor(BWFace.getColor("BackgroundColor"), Gfx.COLOR_TRANSPARENT);
-            dc.drawText(secondsView.locX,  secondsView.locY, font, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+            dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
         }
         seconds = field.value(BW_Seconds)[0];
         dc.setColor(BWFace.getColor("ForegroundColor"), Gfx.COLOR_TRANSPARENT);
-        dc.drawText(secondsView.locX,  secondsView.locY, font, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+        dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
     }
 
     function onUpdate(dc) {
@@ -102,7 +102,7 @@ class BWFaceHRView extends Ui.WatchFace {
 
         View.onUpdate(dc);
 
-        secondsUpdate(dc, BWFace.titleFont, true);
+        secondsUpdate(dc, true);
     }
 
     function calendar(){

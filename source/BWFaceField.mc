@@ -26,8 +26,6 @@ class ActiveField extends Ui.Drawable {
     }
 
     function draw(dc){
-        //var font = BWFace.titleFont;//Ui.loadResource(Rez.Fonts.TitleFont);
-        //var smallFont = BWFace.smallTitleFont;//Ui.loadResource(Rez.Fonts.SmallTitleFont);
 
         var field  = new BWFaceValue();
         var values = field.value(BWFace.getProperty(fid, BW_HeartRate));

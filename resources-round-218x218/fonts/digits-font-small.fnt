@@ -2,7 +2,7 @@ info face="Vox" size=14 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth
 common lineHeight=15 base=13 scaleW=128 scaleH=128 pages=1 packed=0
 page id=0 file="digits-font-small.png"
 chars count=19
-char id=32 x=0 y=0 width=0 height=0 xoffset=-2 yoffset=11 xadvance=4 page=0 chnl=0
+char id=32 x=0 y=0 width=0 height=0 xoffset=-2 yoffset=11 xadvance=3 page=0 chnl=0
 char id=37 x=0 y=4 width=14 height=14 xoffset=-1 yoffset=1 xadvance=12 page=0 chnl=0
 char id=43 x=0 y=18 width=10 height=10 xoffset=-1 yoffset=4 xadvance=8 page=0 chnl=0
 char id=44 x=0 y=28 width=6 height=8 xoffset=-1 yoffset=8 xadvance=4 page=0 chnl=0
@@ -19,7 +19,7 @@ char id=54 x=24 y=4 width=10 height=14 xoffset=-1 yoffset=1 xadvance=10 page=0 c
 char id=55 x=34 y=4 width=10 height=14 xoffset=-1 yoffset=1 xadvance=9 page=0 chnl=0
 char id=56 x=44 y=4 width=10 height=14 xoffset=-1 yoffset=1 xadvance=10 page=0 chnl=0
 char id=57 x=54 y=4 width=10 height=14 xoffset=-1 yoffset=1 xadvance=10 page=0 chnl=0
-char id=58 x=64 y=4 width=6 height=10 xoffset=-1 yoffset=5 xadvance=5 page=0 chnl=0
+char id=58 x=64 y=4 width=6 height=10 xoffset=-1 yoffset=4 xadvance=5 page=0 chnl=0
 char id=59 x=70 y=4 width=6 height=10 xoffset=-1 yoffset=6 xadvance=5 page=0 chnl=0
 kernings count=1
 kerning first=47 second=47 amount=-1

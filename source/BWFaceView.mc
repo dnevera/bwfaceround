@@ -7,6 +7,8 @@ using Toybox.Time.Gregorian as Calendar;
 
 class BWFaceHRView extends Ui.WatchFace {
 
+    var field  = new BWFaceValue();
+
     function initialize() {
         WatchFace.initialize();
     }
@@ -17,13 +19,50 @@ class BWFaceHRView extends Ui.WatchFace {
 
     function onShow() {}
 
+    var isSeccondShown =  BWFace.isSecondsShown();
+    function handlSettingUpdate(){
+       isSeccondShown =  BWFace.isSecondsShown();
+    }
+
+    function onPartialUpdate(dc) {
+        secondsUpdate(dc, BWFace.titleFont, true);
+	}
+
+	var seconds = null;
+    var secondsView = null;
+
+    function secondsUpdate(dc, font, clipping){
+
+        if (!isSeccondShown) {
+            return;
+        }
+
+        if (secondsView == null) {
+            secondsView = View.findDrawableById("SecondsLabel");
+        }
+
+		if (clipping){
+            dc.setClip(secondsView.locX-20, secondsView.locY, 50, 30);
+        }
+
+        if (seconds != null ){
+            dc.setColor(BWFace.getColor("BackgroundColor"), Gfx.COLOR_TRANSPARENT);
+            dc.drawText(secondsView.locX,  secondsView.locY, font, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+        }
+        seconds = field.value(BW_Seconds)[0];
+        dc.setColor(BWFace.getColor("ForegroundColor"), Gfx.COLOR_TRANSPARENT);
+        dc.drawText(secondsView.locX,  secondsView.locY, font, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+    }
+
     function onUpdate(dc) {
 
         var times = BWTime.current();
 
+        if(BWFace.partialUpdatesAllowed) {dc.clearClip();}
+
         var color = BWFace.getColor("HoursColor");
-        setForView("HourLabel0",times[0],color, BWFace.clockFont);
-        setForView("HourLabel1",times[1],color, BWFace.clockFont);
+        setForView("HourLabel0", times[0],color, BWFace.clockFont);
+        setForView("HourLabel1", times[1],color, BWFace.clockFont);
         setForView("H12Label0",  times[3].substring(0,1), color, BWFace.titleFont);
         setForView("H12Label1",  times[3].substring(1,2), color, BWFace.titleFont);
 
@@ -35,7 +74,6 @@ class BWFaceHRView extends Ui.WatchFace {
         setForView("MinutesLabel1",times[5],color, BWFace.smallClockFont);
 
         color = BWFace.getColor("ForegroundColor");
-        var field  = new BWFaceValue();
         var values = field.value(BWFace.getProperty("HintField", BW_ActivityFactor));
 
         var dt = calendar();
@@ -63,6 +101,8 @@ class BWFaceHRView extends Ui.WatchFace {
 		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 
         View.onUpdate(dc);
+
+        secondsUpdate(dc, BWFace.titleFont, true);
     }
 
     function calendar(){
@@ -92,16 +132,38 @@ class BWFaceHRView extends Ui.WatchFace {
 
     function setForView(id,text,color,font){
         var view = View.findDrawableById(id);
-        view.setColor(color);
-        view.setText(text);
         if (font!=null){
             view.setFont(font);
         }
+        view.setColor(color);
+        view.setText(text);
         return view;
     }
 
-    function onHide() {}
-    function onExitSleep() {}
-    function onEnterSleep() {}
+    function onExitSleep() {
+    	BWFace.partialUpdatesAllowed = Toybox.WatchUi.WatchFace has :onPartialUpdate;
+    	if(!BWFace.partialUpdatesAllowed) {Ui.requestUpdate();}
+    }
 
+    function onEnterSleep() {
+    	if(!BWFace.partialUpdatesAllowed) {Ui.requestUpdate();}
+    }
+
+    function onHide() {}
+}
+
+// https://forums.garmin.com/forum/developers/connect-iq/1229818-watch-face-onpartialupdate-does-not-work-on-all-devices-which-support-this-function
+// with onPartialUpdate, the println()'s are useful for debugging.
+// If you exceed the budget, you can see by how much, etc.  The do1hz is used in onUpdate()
+// and is key.
+class BWFaceHRDelegate extends Ui.WatchFaceDelegate
+{
+
+	function initialize() {
+		WatchFaceDelegate.initialize();
+	}
+
+    function onPowerBudgetExceeded(powerInfo) {
+        BWFace.partialUpdatesAllowed=false;
+    }
 }

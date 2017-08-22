@@ -50,6 +50,9 @@
 
     <!-- Properties -->
 
+
+    <string id="UseSecondsTimeTitle">Show Seconds</string>
+
     <string id="Steps">Steps</string>
     <string id="Calories">Calories</string>
     <string id="Distance">Distance</string>

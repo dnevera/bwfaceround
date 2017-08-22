@@ -77,4 +77,8 @@
         <settingConfig type="boolean" />
     </setting-->
 
+    <setting propertyKey="@Properties.UseSecondsTime" title="@Strings.UseSecondsTimeTitle">
+      <settingConfig type="boolean" />
+  </setting>
+
 </settings>

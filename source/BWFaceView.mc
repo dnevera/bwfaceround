@@ -47,11 +47,11 @@ class BWFaceHRView extends Ui.WatchFace {
 
         if (seconds != null ){
             dc.setColor(BWFace.getColor("BackgroundColor"), Gfx.COLOR_TRANSPARENT);
-            dc.drawText(secondsView.locX,  secondsView.locY, BWFace.smallDigitsFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+            dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
         }
         seconds = field.value(BW_Seconds)[0];
         dc.setColor(BWFace.getColor("ForegroundColor"), Gfx.COLOR_TRANSPARENT);
-        dc.drawText(secondsView.locX,  secondsView.locY, BWFace.smallDigitsFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+        dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
     }
 
     function onUpdate(dc) {

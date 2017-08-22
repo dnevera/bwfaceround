@@ -50,7 +50,7 @@ class BWFaceValue {
                 }
 				dict[:scale] = 10;
 				dict[:prec] = 2;
-				dict[:delim] = ",";
+				dict[:delim] = ".";
 				break;
 			case BW_Steps:
 				dict[:title] = Ui.loadResource( Rez.Strings.StepsTitle ).toUpper();
@@ -114,7 +114,7 @@ class BWFaceValue {
 			case BW_ActivityFactor :
 				dict[:title] = Ui.loadResource( Rez.Strings.ActivityFactorTitle ).toUpper();
 				dict[:scale] = 10;
-				dict[:delim] = ",";
+				dict[:delim] = ".";
 				dict[:prec] = 2;
 
 				break;
@@ -185,11 +185,12 @@ class BWFaceValue {
 			case BW_Climbed:
 			    if (Toybox.ActivityMonitor.Info has :metersClimbed) {
 					value = Monitor.getInfo().metersClimbed;
-					value = value == null ? "--" : value/distanceFactor();
+					value = value == null ? "--" : (value/distanceFactor()).format("%.2f");
 				}
 				else {
 					value = "--";
 				}
+				Sys.println("Climbed = " + value);
 				break;
 
 			case BW_Steps:
@@ -339,7 +340,8 @@ class BWFaceValue {
     		        value = [value,""];
 		        break;
 		        case 3:
-    		        value = [value.substring(0, 2),value.substring(2, 4)];
+		            value = [value,""];
+    		        //value = [value.substring(0, 2),value.substring(2, 4)];
 		        break;
 		        case 4:
     		        value = [value.substring(0, 2),value.substring(2, 5)];
@@ -394,7 +396,7 @@ class BWFaceValue {
 			if (n.data == null){
 				return "--";
 			}
-			n = n.data;
+			n = 1024.23 * 100;//n.data;
 			return (Math.round(n*factor*scale)/scale).format(format);
     	}
 		else {

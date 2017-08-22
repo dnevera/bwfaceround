@@ -10,16 +10,16 @@ char id=45 x=6 y=30 width=8 height=6 xoffset=-1 yoffset=6 xadvance=7 page=0 chnl
 char id=46 x=0 y=38 width=6 height=6 xoffset=-1 yoffset=10 xadvance=5 page=0 chnl=0
 char id=47 x=0 y=44 width=10 height=18 xoffset=-1 yoffset=-1 xadvance=8 page=0 chnl=0
 
-char id=48 x=0 y=62 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=49 x=0 y=78 width=10 height=16 xoffset=2 yoffset=0 xadvance=11 page=0 chnl=0
-char id=50 x=0 y=94 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=48 x=0 y=62 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=49 x=0 y=78 width=10 height=16  xoffset=2 yoffset=0 xadvance=11 page=0 chnl=0
+char id=50 x=0 y=94 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
 char id=51 x=0 y=110 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=52 x=14 y=4 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=53 x=26 y=4 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=54 x=38 y=4 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=55 x=50 y=4 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=56 x=62 y=4 width=12 height=16 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
-char id=57 x=74 y=4 width=12 height=16 xoffset=-1 yoffset=0 xadvance=11 page=0 chnl=0
+char id=52 x=14 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=53 x=26 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=54 x=38 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=55 x=50 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=56 x=62 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=57 x=74 y=4 width=12 height=16  xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
 
 char id=58 x=86 y=4 width=6 height=10 xoffset=-1 yoffset=4 xadvance=5 page=0 chnl=0
 char id=59 x=92 y=4 width=6 height=12 xoffset=-1 yoffset=5 xadvance=5 page=0 chnl=0

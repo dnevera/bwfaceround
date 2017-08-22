@@ -18,6 +18,8 @@
 
     <!-- Abbrevations -->
 
+    <string id="UseSecondsTimeTitle">Показывать секунды</string>
+
     <string id="StepsTitle">шагов</string>
     <string id="CaloriesTitle">ккал</string>
     <string id="DistanceTitle">км</string>

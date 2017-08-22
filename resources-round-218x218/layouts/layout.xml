@@ -43,12 +43,14 @@
     <label  text="0" id="HourLabel0"  x="32" y="68"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="HourLabel1"  x="74" y="68"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
+    <label  text="   " id="SecondsLabel" x="186" y="80" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+
     <label  text=":" id="ColumnLabel" x="109" y="47" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="" id="H12Label0"   x="109" y="80" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="" id="H12Label0"   x="109" y="80"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="" id="H12Label1"   x="109" y="100" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="0" id="MinutesLabel0" x="142" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="MinutesLabel1" x="172" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel0" x="140" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel1" x="170" y="70" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <label  text="" id="SSLabel" x="200" y="121" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
 

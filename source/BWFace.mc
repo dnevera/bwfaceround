@@ -10,6 +10,8 @@ using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
 
+	var partialUpdatesAllowed = ( Toybox.WatchUi.WatchFace has :onPartialUpdate );
+
     var clockFont      = Ui.loadResource(Rez.Fonts.ClockFont);
     var smallClockFont = Ui.loadResource(Rez.Fonts.SmallClockFont);
     var smallDigitsFont = Ui.loadResource(Rez.Fonts.SmallDigitsFont);
@@ -55,6 +57,10 @@ module BWFace {
                     }
     };
 
+    function isSecondsShown() {
+        return (BWFace.partialUpdatesAllowed && BWFace.getProperty("UseSecondsTime", false));
+    }
+
 	function getProperty(key,default_value) {
 		var v = App.getApp().getProperty(key);
 		return v == null ? default_value : v;
@@ -67,8 +73,6 @@ module BWFace {
 	function setProperty(key,value) {
 		App.getApp().setProperty(key, value);
 	}
-
-	var partialUpdatesAllowed = ( Toybox.WatchUi.WatchFace has :onPartialUpdate );
 
 	function decimals(n,scale){
 		var t0=(n.toFloat())/1000.0;

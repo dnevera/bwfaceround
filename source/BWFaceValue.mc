@@ -190,7 +190,6 @@ class BWFaceValue {
 				else {
 					value = "--";
 				}
-				Sys.println("Climbed = " + value);
 				break;
 
 			case BW_Steps:

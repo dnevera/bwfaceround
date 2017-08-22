@@ -58,7 +58,7 @@ module BWFace {
     };
 
     function isSecondsShown() {
-        return (BWFace.partialUpdatesAllowed && BWFace.getProperty("UseSecondsTime", false));
+        return (( Toybox.WatchUi.WatchFace has :onPartialUpdate ) && BWFace.getProperty("UseSecondsTime", false));
     }
 
 	function getProperty(key,default_value) {

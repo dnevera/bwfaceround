@@ -202,7 +202,7 @@ class BWFaceValue {
 				break;
 
 			case BW_Seconds:
-				if (BWFace.partialUpdatesAllowed){
+				if (Toybox.WatchUi.WatchFace has :onPartialUpdate){
 					value = Sys.getClockTime().sec;
 					value = value== null ? "--" : value.format("%02.0f");
 				}

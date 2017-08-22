@@ -37,7 +37,7 @@
     </drawable>
 
     <label  text="" id="HintLabel"       x="19"  y="58"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="HintLabelTitle"  x="30"  y="59"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="HintLabelTitle"  x="30"  y="60"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
     <label  text="" id="DateLabel"       x="200" y="58"  justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
     <label  text="0" id="HourLabel0"  x="34" y="68"  justification="Gfx.TEXT_JUSTIFY_CENTER" />

@@ -31,7 +31,7 @@ class ActiveField extends Ui.Drawable {
         var values = field.value(BWFace.getProperty(fid, BW_HeartRate));
 
         var size = dc.getTextDimensions(values[0], BWFace.titleFont);
-        var fractSize = dc.getTextDimensions(values[1], BWFace.smallTitleFont);
+        var fractSize = dc.getTextDimensions(values[1], BWFace.smallDigitsFont);
         var titleSize = dc.getTextDimensions(values[2], BWFace.smallTitleFont);
 
         var y  = locY+titleSize[1]+titlePadding;
@@ -53,7 +53,7 @@ class ActiveField extends Ui.Drawable {
         dc.drawText(x,     y, BWFace.titleFont, values[0], justification);
 
         if (values[1].length()>0){
-            dc.drawText(fx,  fy, BWFace.smallTitleFont, values[1], justification);
+            dc.drawText(fx,  fy, BWFace.smallDigitsFont, values[1], justification);
         }
 
         dc.drawText(locX,  locY, BWFace.smallTitleFont, values[2], justification);

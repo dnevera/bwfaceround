@@ -76,7 +76,7 @@ char id=1069 x=170 y=90 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0
 char id=1071 x=17 y=105 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0 chnl=0
 char id=1063 x=68 y=90 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0 chnl=0
 char id=1057 x=153 y=75 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0 chnl=0
-char id=1052 x=68 y=75 width=17 height=15 xoffset=0 yoffset=0 xadvance=11 page=0 chnl=0
+char id=1052 x=68 y=75 width=17 height=15 xoffset=0 yoffset=0 xadvance=10 page=0 chnl=0
 char id=1048 x=0 y=75 width=17 height=15 xoffset=0 yoffset=0 xadvance=9 page=0 chnl=0
 char id=1058 x=170 y=75 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0 chnl=0
 char id=1068 x=153 y=90 width=17 height=15 xoffset=0 yoffset=0 xadvance=7 page=0 chnl=0

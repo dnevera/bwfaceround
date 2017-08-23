@@ -12,13 +12,14 @@ module BWTime {
         var clockTime = Sys.getClockTime();
         var hour = clockTime.hour;
 
-        var times = ["0","0", App.getApp().getProperty("UseMilitaryFormat") ? "" : ":", hour >= 12 ? "PM" : "AM", "0", "0"];
+        var times = ["0","0", App.getApp().getProperty("UseMilitaryFormat") ? "" : ":", hour >= 12 ? "P" : "A", "M", "0", "0"];
 
         if (Sys.getDeviceSettings().is24Hour){
             var s = (hour % 24).format("%02.0f");
             times[0] = s.substring(0,1);
             times[1] = s.substring(1,2);
             times[3] = "";
+            times[4] = "";
         }
         else {
 
@@ -37,14 +38,15 @@ module BWTime {
                 times[1] = hour.format("%1.0f");
             }
             times[2] = "";
+            //times[3] = "";
         }
 
         var min = clockTime.min;
 //        var min = clockTime.sec;
 
         var m = min.format("%02.0f");
-        times[4] = m.substring(0,1);
-        times[5] = m.substring(1,2);
+        times[5] = m.substring(0,1);
+        times[6] = m.substring(1,2);
 
 //        min = clockTime.sec % 24;
 //        m = min.format("%02.0f");

@@ -8,6 +8,14 @@ using Toybox.Math as Math;
 class BMRMeter extends Ui.Drawable {
 
     var width;
+    var locX;
+    var locY;
+    var scaleY;
+    //var boxX;
+    //var boxY;
+    //var boxWidth;
+    //var boxHeight;
+
     function initialize(params) {
         var dictionary = {
             :identifier => "BMRMeter"
@@ -15,6 +23,13 @@ class BMRMeter extends Ui.Drawable {
 
         Drawable.initialize(dictionary);
         width = params.get(:width);
+        locX = params.get(:valueX);
+        locY = params.get(:valueY);
+        scaleY = params.get(:scaleY);
+        //boxY = params.get(:boxY);
+        //boxX = params.get(:boxX);
+        //boxWidth = params.get(:boxWidth);
+        //boxHeight = params.get(:boxHeight);
     }
 
     function draw(dc) {
@@ -45,9 +60,6 @@ class BMRMeter extends Ui.Drawable {
 			}
 		}
 
-		dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
-		dc.setPenWidth(width);
-
         var x = dc.getWidth().toFloat()/2;
         var y = dc.getHeight().toFloat()/2;
         var r = x-width/2;
@@ -65,11 +77,47 @@ class BMRMeter extends Ui.Drawable {
 			dir =  Gfx.ARC_COUNTER_CLOCKWISE;
 		}
 
+		dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+		dc.setPenWidth(width);
         dc.drawArc(x, y, r+1, dir, start, end);
 
 		dc.setPenWidth(1);
+
 		var bg = BWFace.getColor("BackgroundColor");
 		dc.setColor(bg,  bg);
 		dc.drawArc(x, y, r-width/2+1, dir, start, end);
+
+		//dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+        //dc.drawRoundedRectangle(boxX, boxY, boxWidth, boxHeight, 2);
+
+        var text   =  cl.format("%.0f");
+		dc.setColor(BWFace.getColor("ForegroundColor"),  Gfx.COLOR_TRANSPARENT);
+		//dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+        dc.drawText(locX, locY, BWFace.titleFont, text, Gfx.TEXT_JUSTIFY_CENTER);
+
+        if (scale > 1) {
+		    dc.setColor(bg,  bg);
+		    dc.fillRectangle(x, 0, width, width);
+
+		    dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+            dc.drawText(x, scaleY, BWFace.smallTitleFont, scale.format("%.0f"), Gfx.TEXT_JUSTIFY_CENTER);
+            //dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+            //dc.drawCircle(x-1, 0, width + width/2);
+        }
+        else {
+            dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+            dc.fillCircle(x, 0, width + width/3);
+        }
+        //var a = boxHeight+boxY;
+        //var b = boxWidth/2;
+        //var _sin = a/Math.sqrt(a*a+b*b);
+        //var angle = Math.asin(_sin) * 180/Math.PI/2;
+
+		//dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+        //dc.drawArc(x, y, r-width/2+2, Gfx.ARC_CLOCKWISE, 90+angle+2, 90-angle-1);
+        //dc.drawArc(x, y, r+width/2, Gfx.ARC_CLOCKWISE, 90+angle+1, 90-angle-1);
+
+
+        //Sys.println("_sin = " + _sin + " angle = " + angle);
     }
 }

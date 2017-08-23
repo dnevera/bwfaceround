@@ -9,106 +9,105 @@ class BWFaceHRView extends Ui.WatchFace {
 
     var field  = new BWFaceValue();
 
+    var isSeccondShown;
+    var bg;
+    var fg;
+
     function initialize() {
         WatchFace.initialize();
     }
 
+    var secondsBounds;
     function onLayout(dc) {
         setLayout(Rez.Layouts.WatchFace(dc));
+        handlSettingUpdate();
+        secondsBounds = dc.getTextDimensions("99", BWFace.titleFont);
     }
 
     function onShow() {}
 
-    var isSeccondShown =  BWFace.isSecondsShown();
     function handlSettingUpdate(){
-       isSeccondShown =  BWFace.isSecondsShown();
+        isSeccondShown =  BWFace.isSecondsShown();
+        bg = BWFace.getColor("BackgroundColor");
+        fg = BWFace.getColor("ForegroundColor");
+        secondsView = View.findDrawableById("SecondsLabel");
     }
 
     function onPartialUpdate(dc) {
         secondsUpdate(dc, true);
 	}
 
-	var seconds = null;
     var secondsView = null;
 
     function secondsUpdate(dc, clipping){
 
-        if (!isSeccondShown) {
-            return;
-        }
+        if (!isSeccondShown) {return;}
 
-        if (secondsView == null) {
-            secondsView = View.findDrawableById("SecondsLabel");
-        }
+        var x = secondsView.locX;
+        var y = secondsView.locY;
 
 		if (clipping){
-            dc.setClip(secondsView.locX-20, secondsView.locY, 50, 30);
+            dc.setClip(x, y, secondsBounds[0], secondsBounds[1]);
+            dc.setColor(bg,  bg);
+            dc.clear();
         }
 
-        if (seconds != null ){
-            dc.setColor(BWFace.getColor("BackgroundColor"), Gfx.COLOR_TRANSPARENT);
-            dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
-        }
-        seconds = field.value(BW_Seconds)[0];
-        dc.setColor(BWFace.getColor("ForegroundColor"), Gfx.COLOR_TRANSPARENT);
-        dc.drawText(secondsView.locX,  secondsView.locY, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
+        var seconds = Sys.getClockTime().sec;
+        seconds = seconds == null ? "--" : seconds.format("%02.0f");
+
+        dc.setColor(fg, Gfx.COLOR_TRANSPARENT);
+        dc.drawText(x,  y, BWFace.titleFont, seconds, Gfx.TEXT_JUSTIFY_LEFT);
     }
+
 
     function onUpdate(dc) {
 
-        isSeccondShown =  BWFace.isSecondsShown();
+        if(isSeccondShown) {dc.clearClip();}
+
+        var hoursColor   = BWFace.getColor("HoursColor");
+        var minutesColor = BWFace.getColor("MinutesColor");
+        var colonColor   = BWFace.getColor("TimeColonColor");
 
         var times = BWTime.current();
 
-        if(isSeccondShown) {dc.clearClip();}
+        setForView("HourLabel0", times[0], hoursColor, BWFace.clockFont);
+        setForView("HourLabel1", times[1], hoursColor, BWFace.clockFont);
 
-//        if (isSeccondShown){
-//            dc.setClip(0, 0, dc.getWidth(), dc.getHeight());
-//        }
+        setForView("ColonLabel", times[2], colonColor, BWFace.clockFont);
+        setForView("H12Label0",   times[3], hoursColor, BWFace.titleFont);
+        setForView("H12Label1",   times[4], hoursColor, BWFace.titleFont);
 
-        var color = BWFace.getColor("HoursColor");
-        setForView("HourLabel0", times[0],color, BWFace.clockFont);
-        setForView("HourLabel1", times[1],color, BWFace.clockFont);
-        setForView("H12Label0",  times[3].substring(0,1), color, BWFace.titleFont);
-        setForView("H12Label1",  times[3].substring(1,2), color, BWFace.titleFont);
+        setForView("MinutesLabel0", times[5], minutesColor, BWFace.smallClockFont);
+        setForView("MinutesLabel1", times[6], minutesColor, BWFace.smallClockFont);
 
-        color = BWFace.getColor("TimeColonColor");
-        setForView("ColumnLabel",times[2],color, BWFace.clockFont);
+        var values = field.value(BW_SunriseSunset);
+        setForView("SSLabel",  values[0]+values[1]+values[2], fg, BWFace.smallDigitsFont);
 
-        color = BWFace.getColor("MinutesColor");
-        setForView("MinutesLabel0",times[4],color, BWFace.smallClockFont);
-        setForView("MinutesLabel1",times[5],color, BWFace.smallClockFont);
+        values = field.value(BWFace.getProperty("HintField", BW_ActivityFactor));
 
-        color = BWFace.getColor("ForegroundColor");
-        var values = field.value(BWFace.getProperty("HintField", BW_ActivityFactor));
-
-        var dt = calendar();
-        var dtSize = dc.getTextDimensions(dt, BWFace.titleFont);
-
-        var txt = values[0]+values[1];
+        var txt   = values[0]+values[1];
+        var dt    = calendar();
         var title = values[2];
-        var size = dc.getTextDimensions(txt, BWFace.titleFont);
-        var tsize = dc.getTextDimensions(title, BWFace.smallTitleFont);
 
-        var hint = setForView("HintLabel", txt, color, BWFace.titleFont);
-        var date = setForView("DateLabel", dt, color, BWFace.titleFont);
+        var hintLabel = setForView("HintLabel", txt, fg, BWFace.titleFont);
+        var dateLabel = setForView("DateLabel", dt, fg, BWFace.titleFont);
+        var hintTitle = setForView("HintLabelTitle", null, fg, BWFace.smallTitleFont);
 
-        if ((hint.locX+size[0]+tsize[0])<(date.locX-dtSize[0])){
-            var hintTitle = setForView("HintLabelTitle", title, color, BWFace.smallTitleFont);
-            hintTitle.locX = hint.locX + size[0];
+        var dtSize = dc.getTextDimensions(dt, BWFace.titleFont);
+        var size   = dc.getTextDimensions(txt, BWFace.titleFont);
+        var tsize  = dc.getTextDimensions(title, BWFace.smallTitleFont);
+
+        if ((hintLabel.locX+size[0]+tsize[0])<(dateLabel.locX-dtSize[0])){
+            hintTitle.locX = hintLabel.locX + size[0];
+            hintTitle.setText(title);
         }
         else {
-            setForView("HintLabelTitle", "", color, BWFace.smallTitleFont);
+            hintTitle.setText("");
         }
-
-        values = field.value(BW_SunriseSunset);
-        setForView("SSLabel",values[0]+values[1]+values[2], color, BWFace.smallDigitsFont);
-
-		setForView("BmrLabel", BWFace.bmrDiff().abs().format("%.0f"), color, BWFace.titleFont);
 
         View.onUpdate(dc);
 
-        secondsUpdate(dc, true);
+        secondsUpdate(dc, false);
     }
 
     function calendar(){
@@ -138,17 +137,17 @@ class BWFaceHRView extends Ui.WatchFace {
 
     function setForView(id,text,color,font){
         var view = View.findDrawableById(id);
-        if (font!=null){
-            view.setFont(font);
-        }
-        view.setColor(color);
-        view.setText(text);
+
+        if (font !=null) { view.setFont(font);   }
+        if (color!=null) { view.setColor(color); }
+        if (text !=null) { view.setText(text);   }
+
         return view;
     }
 
     function onExitSleep() {
-    	BWFace.partialUpdatesAllowed = Toybox.WatchUi.WatchFace has :onPartialUpdate;
-    	if(!BWFace.partialUpdatesAllowed) {Ui.requestUpdate();}
+        BWFace.powerBudgetExceeded   = false;
+        if(!BWFace.partialUpdatesAllowed) {Ui.requestUpdate();}
     }
 
     function onEnterSleep() {
@@ -170,6 +169,8 @@ class BWFaceHRDelegate extends Ui.WatchFaceDelegate
 	}
 
     function onPowerBudgetExceeded(powerInfo) {
-        BWFace.partialUpdatesAllowed=false;
+        BWFace.powerBudgetExceeded=true;
+        Sys.println( "Average execution time: " + powerInfo.executionTimeAverage );
+        Sys.println( "Allowed execution time: " + powerInfo.executionTimeLimit );
     }
 }

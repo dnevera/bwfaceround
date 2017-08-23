@@ -10,6 +10,7 @@ using Toybox.ActivityMonitor as ActivityMonitor;
 
 module BWFace {
 
+    var powerBudgetExceeded = false;
 	var partialUpdatesAllowed = ( Toybox.WatchUi.WatchFace has :onPartialUpdate );
 
     var clockFont      = Ui.loadResource(Rez.Fonts.ClockFont);

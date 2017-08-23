@@ -34,7 +34,6 @@ class AFGraph extends Ui.Drawable {
         var hist = ActivityMonitor.getHistory();
         var calories = ActivityMonitor.getInfo().calories;
 
-        //var font = BWFace.smallTitleFont;
         var colSize = dc.getTextDimensions("W", BWFace.smallTitleFont);
         var w      = (barWidth+padding/2) * 2;
         var offset = w/2+padding/2;
@@ -71,9 +70,29 @@ class AFGraph extends Ui.Drawable {
 
         var min0 = 100000;
         var max0 = 0.1;
+
+        x = x0+padding/2;
+        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+
+//        for (var i = start; i>=0; i--){
+//            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
+//            var vd =  t.day_of_week.toString().substring(0, 1);
+//            if (i <= start-1 && i>=0){
+//                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
+//            }
+//            x +=  offset;
+//        }
+
         for (var i = start; i>=0; i--){
             if (hist[i].calories<min0) { min0 = hist[i].calories; }
             if (hist[i].calories>max0) { max0 = hist[i].calories; }
+
+            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
+            var vd =  t.day_of_week.toString().substring(0, 1);
+            if (i <= start-1 && i>=0){
+                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
+            }
+            x +=  offset;
         }
 
         if (calories<min0) { min0 = calories; }
@@ -138,17 +157,20 @@ class AFGraph extends Ui.Drawable {
         dc.drawLine(x1, y1, x2, y1);
         dc.drawLine(x1, y1+1, x2, y1+1);
 
-         x = x0+padding/2;
-        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+//        x = x0+padding/2;
+//        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+//
+//        for (var i = start; i>=0; i--){
+//            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
+//            var vd =  t.day_of_week.toString().substring(0, 1);
+//            if (i <= start-1 && i>=0){
+//                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
+//            }
+//            x +=  offset;
+//        }
 
-        for (var i = start; i>=0; i--){
-            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
-            var vd =  t.day_of_week.toString().substring(0, 1);
-            if (i <= start-1 && i>=0){
-                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
-            }
-            x +=  offset;
-        }
+        //dc.drawText(dc.g, ty, BWFace.titleFont, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
+
     }
 
     function whatColor(af,threshold){

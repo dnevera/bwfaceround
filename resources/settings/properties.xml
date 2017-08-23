@@ -5,7 +5,7 @@
     <property id="UseDayLightSavingTime" type="boolean">false</property>
     <property id="UseSecondsTime" type="boolean">false</property>
 
-    <property id="ActivityLeftField"  type="number">7</property>
+    <property id="ActivityLeftField"  type="number">0</property>
     <property id="ActivityMidField"   type="number">1</property>
     <property id="ActivityRightField" type="number">2</property>
 

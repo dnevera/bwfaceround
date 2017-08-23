@@ -395,7 +395,7 @@ class BWFaceValue {
 			if (n.data == null){
 				return "--";
 			}
-			n = 1024.23 * 100;//n.data;
+			n = n.data;
 			return (Math.round(n*factor*scale)/scale).format(format);
     	}
 		else {

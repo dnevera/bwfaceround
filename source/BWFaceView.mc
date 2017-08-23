@@ -56,13 +56,15 @@ class BWFaceHRView extends Ui.WatchFace {
 
     function onUpdate(dc) {
 
+        isSeccondShown =  BWFace.isSecondsShown();
+
         var times = BWTime.current();
 
-        //if(BWFace.partialUpdatesAllowed) {dc.clearClip();}
+        if(isSeccondShown) {dc.clearClip();}
 
-        if (BWFace.partialUpdatesAllowed){
-            dc.setClip(0, 0, dc.getWidth(), dc.getHeight());
-        }
+//        if (isSeccondShown){
+//            dc.setClip(0, 0, dc.getWidth(), dc.getHeight());
+//        }
 
         var color = BWFace.getColor("HoursColor");
         setForView("HourLabel0", times[0],color, BWFace.clockFont);

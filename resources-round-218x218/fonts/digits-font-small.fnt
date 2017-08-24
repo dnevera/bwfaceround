@@ -21,7 +21,7 @@ char id=55 x=34 y=4 width=10 height=14  xoffset=-1 yoffset=1 xadvance=8 page=0 c
 char id=56 x=44 y=4 width=10 height=14  xoffset=-1 yoffset=1 xadvance=8 page=0 chnl=0
 char id=57 x=54 y=4 width=10 height=14  xoffset=-1 yoffset=1 xadvance=8 page=0 chnl=0
 
-char id=58 x=64 y=4 width=6 height=10 xoffset=-1 yoffset=4 xadvance=5 page=0 chnl=0
+char id=58 x=64 y=4 width=6 height=10 xoffset=0 yoffset=4 xadvance=5 page=0 chnl=0
 char id=59 x=70 y=4 width=6 height=10 xoffset=-1 yoffset=6 xadvance=5 page=0 chnl=0
 kernings count=1
 kerning first=47 second=47 amount=-1

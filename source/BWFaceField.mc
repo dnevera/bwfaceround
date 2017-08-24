@@ -46,7 +46,7 @@ class ActiveField extends Ui.Drawable {
         }
         else {
             x -= (fractSize[0]+size[0])/2 - size[0]/2;
-            fx = x + fractSize[0]/2+size[0]/2;
+            fx = x + fractSize[0]/2+size[0]/2+1;
         }
 
         dc.setColor(BWFace.getColor("ForegroundColor"),  Gfx.COLOR_TRANSPARENT);

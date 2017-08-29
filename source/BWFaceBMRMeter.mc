@@ -108,6 +108,7 @@ class BMRMeter extends Ui.Drawable {
             dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
             dc.fillCircle(x, 0, width + width/3);
         }
+
         //var a = boxHeight+boxY;
         //var b = boxWidth/2;
         //var _sin = a/Math.sqrt(a*a+b*b);

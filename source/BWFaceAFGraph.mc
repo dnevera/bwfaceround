@@ -122,6 +122,7 @@ class AFGraph extends Ui.Drawable {
             }
             dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
             dc.fillRectangle(x, y-h, w/2, h);
+
             x +=  offset;
             avrg += h;
             avrgCount += 1;
@@ -150,12 +151,36 @@ class AFGraph extends Ui.Drawable {
         var y1 = y-avrg;
 
         dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
-        dc.drawLine(x1, y1+2, x2, y1+2);
+        dc.setPenWidth(4);
+        //dc.drawLine(x1, y1+2, x2, y1+2);
         dc.drawLine(x1, y1-1, x2, y1-1);
 
         dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
-        dc.drawLine(x1, y1, x2, y1);
-        dc.drawLine(x1, y1+1, x2, y1+1);
+        dc.setPenWidth(2);
+        dc.drawLine(x1, y1-1, x2, y1-1);
+        //dc.drawLine(x1, y1+1, x2, y1+1);
+
+
+        af = avrgAf.format("%.1f");
+        var afSize = dc.getTextDimensions(af, BWFace.smallDigitsFont);
+        var afW = afSize[0]+7;
+        var afH = afSize[1]+4;
+        var x3 = x1+4;
+        var y3 = y1-afH/2-3;
+
+        if ( y3<(y-height)){
+            y3 = y1;
+        }
+
+        dc.setPenWidth(3);
+        dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
+        dc.fillRectangle(x3, y3, afW, afH);
+        dc.setPenWidth(1);
+        dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
+        dc.drawRectangle(x3+1, y3+1, afW-2, afH-2);
+        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
+        dc.drawText(x3+2, y3+1, BWFace.smallDigitsFont, af, Gfx.TEXT_JUSTIFY_LEFT);
+
 
 //        x = x0+padding/2;
 //        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);

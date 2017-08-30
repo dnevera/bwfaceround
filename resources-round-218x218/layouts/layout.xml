@@ -8,6 +8,8 @@
         <param name="barWidth">19</param>
         <param name="x">109</param>
         <param name="y">184</param>
+        <param name="afTextY">1</param>
+        <param name="afTextX">-1</param>
     </drawable>
 
     <drawable class="ActiveLeft">

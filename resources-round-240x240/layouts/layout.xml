@@ -8,6 +8,8 @@
         <param name="barWidth">22</param>
         <param name="x">121</param>
         <param name="y">200</param>
+        <param name="afTextY">2</param>
+        <param name="afTextX">-2</param>
     </drawable>
 
     <drawable class="ActiveLeft">
@@ -38,7 +40,7 @@
 
     <label  text="" id="HintLabel"       x="20"  y="63"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
     <label  text="" id="HintLabelTitle"  x="30"  y="65"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="DateLabel"       x="220" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+    <label  text="" id="DateLabel"       x="219" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
     <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
@@ -50,7 +52,7 @@
     <label  text="0" id="MinutesLabel0" x="154" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
     <label  text="0" id="MinutesLabel1" x="188" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="" id="SSLabel" x="220" y="134" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+    <label  text="" id="SSLabel" x="219" y="134" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
 
     <drawable class="SystemField">
         <param name="x">108</param>

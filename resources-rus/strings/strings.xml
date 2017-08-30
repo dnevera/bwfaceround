@@ -16,6 +16,8 @@
     <string id="ActivityRightFieldTitle">Правое поле</string>
     <string id="HintFieldTitle">Дополнительное поле</string>
 
+    <string id="ActivityFactorSettingsTitle">Множитель УБМ</string>
+
     <!-- Abbrevations -->
 
     <string id="UseSecondsTimeTitle">Показывать секунды</string>

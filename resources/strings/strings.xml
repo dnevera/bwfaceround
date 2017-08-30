@@ -16,6 +16,8 @@
     <string id="ActivityRightFieldTitle">Right Field</string>
     <string id="HintFieldTitle">Hint Field</string>
 
+    <string id="ActivityFactorSettingsTitle">BMR Factor</string>
+
     <!-- Abbrevations -->
 
     <string id="CaloriesTitle">kcal</string>

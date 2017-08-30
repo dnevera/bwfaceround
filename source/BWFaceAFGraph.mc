@@ -11,6 +11,8 @@ class AFGraph extends Ui.Drawable {
     var locY;
     var height;
     var barWidth;
+    var afTextX;
+    var afTextY;
 
     function initialize(params) {
         var dictionary = {
@@ -20,6 +22,8 @@ class AFGraph extends Ui.Drawable {
         Drawable.initialize(dictionary);
         locX = params.get(:x);
         locY = params.get(:y);
+        afTextX = params.get(:afTextX);
+        afTextY = params.get(:afTextY);
         height = params.get(:height);
         barWidth = params.get(:barWidth);
     }
@@ -73,15 +77,6 @@ class AFGraph extends Ui.Drawable {
 
         x = x0+padding/2;
         dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
-
-//        for (var i = start; i>=0; i--){
-//            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
-//            var vd =  t.day_of_week.toString().substring(0, 1);
-//            if (i <= start-1 && i>=0){
-//                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
-//            }
-//            x +=  offset;
-//        }
 
         for (var i = start; i>=0; i--){
             if (hist[i].calories<min0) { min0 = hist[i].calories; }
@@ -152,49 +147,34 @@ class AFGraph extends Ui.Drawable {
 
         dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
         dc.setPenWidth(4);
-        //dc.drawLine(x1, y1+2, x2, y1+2);
         dc.drawLine(x1, y1-1, x2, y1-1);
 
         dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
         dc.drawLine(x1, y1-1, x2, y1-1);
-        //dc.drawLine(x1, y1+1, x2, y1+1);
 
 
         af = avrgAf.format("%.1f");
         var afSize = dc.getTextDimensions(af, BWFace.smallDigitsFont);
-        var afW = afSize[0]+7;
-        var afH = afSize[1]+4;
+        var afW = afSize[0]+9;
+        var afH = afSize[1]+5;
         var x3 = x1+4;
-        var y3 = y1-afH/2-3;
+        var y3 = y1-afH/2-afTextY;
 
-        if ( y3<(y-height)){
-            y3 = y1;
+        if ( y3<(y-height-afTextY)){
+            y3 = y-height-afTextY;
         }
 
         dc.setPenWidth(3);
         dc.setColor(bg,  Gfx.COLOR_TRANSPARENT);
         dc.fillRectangle(x3, y3, afW, afH);
+
         dc.setPenWidth(1);
         dc.setColor(color,  Gfx.COLOR_TRANSPARENT);
         dc.drawRectangle(x3+1, y3+1, afW-2, afH-2);
+
         dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
-        dc.drawText(x3+2, y3+1, BWFace.smallDigitsFont, af, Gfx.TEXT_JUSTIFY_LEFT);
-
-
-//        x = x0+padding/2;
-//        dc.setColor(fg,  Gfx.COLOR_TRANSPARENT);
-//
-//        for (var i = start; i>=0; i--){
-//            var t = Calendar.info(hist[i].startOfDay, Time.FORMAT_MEDIUM);
-//            var vd =  t.day_of_week.toString().substring(0, 1);
-//            if (i <= start-1 && i>=0){
-//                dc.drawText(x, ty, BWFace.smallTitleFont, vd, Gfx.TEXT_JUSTIFY_CENTER);
-//            }
-//            x +=  offset;
-//        }
-
-        //dc.drawText(dc.g, ty, BWFace.titleFont, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(x3+afTextX+afW/2, y3+afTextY, BWFace.smallDigitsFont, af, Gfx.TEXT_JUSTIFY_CENTER);
 
     }
 

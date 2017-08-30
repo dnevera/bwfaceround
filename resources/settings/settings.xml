@@ -77,8 +77,12 @@
         <settingConfig type="boolean" />
     </setting-->
 
+    <setting propertyKey="@Properties.ActivityFactor" title="@Strings.ActivityFactorSettingsTitle">
+        <settingConfig type="numeric" />
+    </setting>
+
     <setting propertyKey="@Properties.UseSecondsTime" title="@Strings.UseSecondsTimeTitle">
       <settingConfig type="boolean" />
-  </setting>
+    </setting>
 
 </settings>

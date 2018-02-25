@@ -67,7 +67,6 @@ class AFGraph extends Ui.Drawable {
             x +=  offset;
             for (var i = start0-1; i>=2; i--){
                 var m = new Time.Moment(Time.today().value()-3600*24*i);
-                //var t = Calendar.info(m, Time.FORMAT_MEDIUM);
                 var t = Calendar.info(m, Time.FORMAT_SHORT);
                 
                 var weekDay = 4*(t.day_of_week-1);
@@ -77,8 +76,7 @@ class AFGraph extends Ui.Drawable {
         		if (s != null){
             		weekDay = weekDay.substring(0,s);
         		}               
-                
-                //dc.drawText(x, ty, BWFace.smallTitleFont, t.day_of_week.toString().substring(0, 1), Gfx.TEXT_JUSTIFY_CENTER);
+                                                
                 dc.drawText(x, ty, BWFace.smallTitleFont, weekDay, Gfx.TEXT_JUSTIFY_CENTER);
                 dc.fillRectangle(x-barWidth/2, y-1, w/2, 1);
                 x +=  offset;

@@ -4,6 +4,7 @@ using Toybox.Graphics as Gfx;
 using Toybox.System as Sys;
 using Toybox.ActivityMonitor as ActivityMonitor;
 using Toybox.Time.Gregorian as Calendar;
+using Toybox.Time as Time;
 
 class AFGraph extends Ui.Drawable {
 

@@ -65,6 +65,7 @@
 
     <string id="Sunrise">Восход</string>
     <string id="Sunset">Закат</string>
+   <string id="SunriseSunset">Восход/Закат</string>
     <string id="Altitude">Высота</string>
 
     <string id="HeartRate">ЧСС</string>

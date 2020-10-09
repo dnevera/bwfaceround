@@ -4,17 +4,17 @@
     <drawable class="Background"></drawable>
 
     <drawable class="AFGraph">
-        <param name="height">52</param>
+        <param name="height">56</param>
         <param name="barWidth">24</param>
         <param name="x">130</param>
-        <param name="y">212</param>
+        <param name="y">217</param>
         <param name="afTextY">2</param>
         <param name="afTextX">-2</param>
     </drawable>
 
     <drawable class="ActiveLeft">
         <param name="x">92</param>
-        <param name="y">31</param>
+        <param name="y">33</param>
         <param name="titlePadding">-2</param>
         <param name="fid">"ActivityLeftField"</param>
         <param name="justification">Gfx.TEXT_JUSTIFY_RIGHT</param>
@@ -22,35 +22,35 @@
 
     <drawable class="ActiveMid">
         <param name="x">126</param>
-        <param name="y">31</param>
+        <param name="y">33</param>
         <param name="titlePadding">-2</param>
         <param name="fid">"ActivityMidField"</param>
         <param name="justification">Gfx.TEXT_JUSTIFY_CENTER</param>
     </drawable>
 
     <drawable class="ActiveRight">
-        <param name="x">160</param>
-        <param name="y">31</param>
+        <param name="x">166</param>
+        <param name="y">33</param>
         <param name="titlePadding">-2</param>
         <param name="fid">"ActivityRightField"</param>
         <param name="justification">Gfx.TEXT_JUSTIFY_LEFT</param>
     </drawable>
 
-    <label  text="" id="SecondsLabel" x="204" y="87" justification="Gfx.TEXT_JUSTIFY_LEFT" />
+    <label  text="" id="SecondsLabel" x="218" y="92" justification="Gfx.TEXT_JUSTIFY_LEFT" />
 
-    <label  text="" id="HintLabel"       x="28"  y="67"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="HintLabelTitle"  x="38"  y="69"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
-    <label  text="" id="DateLabel"       x="225" y="67" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+    <label  text="" id="HintLabel"       x="28"  y="69"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="HintLabelTitle"  x="38"  y="71"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="DateLabel"       x="225" y="69" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
 
-    <label  text="0" id="HourLabel0"  x="44" y="78" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="HourLabel1"  x="90" y="78" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="HourLabel0"  x="44" y="82" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="HourLabel1"  x="90" y="82" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text=":" id="ColonLabel" x="130" y="55"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="AM" id="H12Label0"  x="132" y="91"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="AM" id="H12Label1"  x="132" y="114"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text=":" id="ColonLabel" x="130" y="59"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label0"  x="130" y="95"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label1"  x="130" y="118"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
-    <label  text="0" id="MinutesLabel0" x="166" y="81" justification="Gfx.TEXT_JUSTIFY_CENTER" />
-    <label  text="0" id="MinutesLabel1" x="200" y="81" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel0" x="166" y="85" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel1" x="202" y="85" justification="Gfx.TEXT_JUSTIFY_CENTER" />
 
     <label  text="" id="SSLabel" x="229" y="140" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
 

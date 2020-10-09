@@ -1,0 +1,77 @@
+<!-- 260x260 -->
+
+<layout id="WatchFace">
+    <drawable class="Background"></drawable>
+
+    <drawable class="AFGraph">
+        <param name="height">48</param>
+        <param name="barWidth">22</param>
+        <param name="x">121</param>
+        <param name="y">200</param>
+        <param name="afTextY">2</param>
+        <param name="afTextX">-2</param>
+    </drawable>
+
+    <drawable class="ActiveLeft">
+        <param name="x">88</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityLeftField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_RIGHT</param>
+    </drawable>
+
+    <drawable class="ActiveMid">
+        <param name="x">120</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityMidField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_CENTER</param>
+    </drawable>
+
+    <drawable class="ActiveRight">
+        <param name="x">152</param>
+        <param name="y">31</param>
+        <param name="titlePadding">-2</param>
+        <param name="fid">"ActivityRightField"</param>
+        <param name="justification">Gfx.TEXT_JUSTIFY_LEFT</param>
+    </drawable>
+
+    <label  text="" id="SecondsLabel" x="204" y="87" justification="Gfx.TEXT_JUSTIFY_LEFT" />
+
+    <label  text="" id="HintLabel"       x="20"  y="63"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="HintLabelTitle"  x="30"  y="65"  justification="Gfx.TEXT_JUSTIFY_LEFT"/>
+    <label  text="" id="DateLabel"       x="219" y="63" justification="Gfx.TEXT_JUSTIFY_RIGHT" />
+
+    <label  text="0" id="HourLabel0"  x="36" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="HourLabel1"  x="82" y="74" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text=":" id="ColonLabel" x="120" y="51"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label0"  x="120" y="87"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="AM" id="H12Label1"  x="120" y="110"  justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text="0" id="MinutesLabel0" x="154" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+    <label  text="0" id="MinutesLabel1" x="188" y="77" justification="Gfx.TEXT_JUSTIFY_CENTER" />
+
+    <label  text="" id="SSLabel" x="219" y="134" justification="Gfx.TEXT_JUSTIFY_RIGHT"/>
+
+    <drawable class="SystemField">
+        <param name="x">108</param>
+        <param name="y">219</param>
+        <param name="batteryWidth">18</param>
+        <param name="batteryHeight">9</param>
+        <param name="messageWidth">12</param>
+        <param name="messageHeight">7</param>
+    </drawable>
+
+    <drawable class="BMRMeter">
+        <param name="width">6</param>
+        <param name="valueX">120</param>
+        <param name="valueY">9</param>
+        <param name="scaleY">-3</param>
+        <!--param name="boxX">80</param>
+        <param name="boxY">-2</param>
+        <param name="boxWidth">80</param>
+        <param name="boxHeight">32</param-->
+    </drawable>
+
+</layout>

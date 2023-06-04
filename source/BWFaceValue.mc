@@ -164,6 +164,7 @@ class BWFaceValue {
 	   }
     }
 
+	(:typecheck(false))
 	function value(id) {
 		var value = 0;
 		switch (id) {

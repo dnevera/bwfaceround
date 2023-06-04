@@ -25,6 +25,7 @@ class ActiveField extends Ui.Drawable {
         fid = params.get(:fid);
     }
 
+    (:typecheck(false))
     function draw(dc){
 
         var field  = new BWFaceValue();

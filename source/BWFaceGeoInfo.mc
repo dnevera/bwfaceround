@@ -63,7 +63,8 @@ class BWFaceGeoInfo
         var N3 = (1 + Math.floor((year - 4 * Math.floor(year / 4) + 2) / 3));
         return N1 - (N2 * N3) + day - 30;
     }
-
+    
+    (:typecheck(false))
     function computeSunrise(sunrise)
     {
 

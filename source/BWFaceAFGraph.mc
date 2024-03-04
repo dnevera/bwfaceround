@@ -36,13 +36,13 @@ class AFGraph extends Ui.Drawable {
         graphsField(dc,locX,locY, height);
     }
 
+     (:typecheck(false))
      function graphsField(dc,locX,locY, height) {
 
         var padding = 2;
         var hist = ActivityMonitor.getHistory();
         var calories = ActivityMonitor.getInfo().calories;
 
-        var colSize = dc.getTextDimensions("W", BWFace.smallTitleFont);
         var w      = (barWidth+padding/2) * 2;
         var offset = w/2+padding/2;
 
@@ -169,6 +169,7 @@ class AFGraph extends Ui.Drawable {
 
         af = avrgAf.format("%.1f");
         var afSize = dc.getTextDimensions(af, BWFace.smallDigitsFont);
+
         var afW = afSize[0]+9;
         var afH = afSize[1]+5;
         var x3 = x1+4;

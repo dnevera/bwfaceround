@@ -1,5 +1,5 @@
 using Toybox.WatchUi as Ui;
-using Toybox.Lang;
+using Toybox.Lang as Lang;
 using Toybox.System;
 using Toybox.Graphics as Gfx;
 using Toybox.Application as App;
@@ -7,6 +7,7 @@ using Toybox.UserProfile as User;
 using Toybox.Time.Gregorian as Calendar;
 using Toybox.Time as Time;
 using Toybox.ActivityMonitor as ActivityMonitor;
+
 
 module BWFace {
 
@@ -67,8 +68,13 @@ module BWFace {
 		return v == null ? default_value : v;
 	}
 
-    function getColor(color){
-        return colorScheme[getProperty("ColorScheme",0)][color];
+	(:typecheck(false))
+    function getColor(color as Lang.String) as Lang.Number {
+        return 
+		colorScheme[
+			getProperty("ColorScheme",0) as Lang.Number
+			 ]
+			 [color];
     }
 
 	function setProperty(key,value) {
@@ -82,6 +88,7 @@ module BWFace {
 		return [t0.toLong(),fract];
 	}
 
+	(:typecheck(false))
 	function decFields(value,delim,scale,prec){
 		if (value==null) {
 			return ["--",""];

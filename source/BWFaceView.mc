@@ -39,6 +39,7 @@ class BWFaceHRView extends Ui.WatchFace {
 
     var secondsView = null;
 
+    (:typecheck(false))
     function secondsUpdate(dc, clipping){
 
         if (!isSeccondShown) {return;}
@@ -60,6 +61,7 @@ class BWFaceHRView extends Ui.WatchFace {
     }
 
 
+    (:typecheck(false))
     function onUpdate(dc) {
 
         if(isSeccondShown) {dc.clearClip();}
@@ -115,8 +117,6 @@ class BWFaceHRView extends Ui.WatchFace {
         var weekDays = Ui.loadResource(Rez.Strings.WeekDays);
 
         var today = BWTime.today();
-        var ss = "";
-
     	var weekDay = 4*(today.day_of_week-1);
         var month = 5*(today.month-1);
 
@@ -136,7 +136,7 @@ class BWFaceHRView extends Ui.WatchFace {
     }
 
     function setForView(id,text,color,font){
-        var view = View.findDrawableById(id);
+        var view = View.findDrawableById(id) as Ui.Text;
 
         if (font !=null) { view.setFont(font);   }
         if (color!=null) { view.setColor(color); }

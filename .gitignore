@@ -2,3 +2,6 @@
 */*.prg.debug.xml
 .idea/*workspace.*
 */.idea/*workspace.*
+*.mir
+*.mbc
+*.mcgen

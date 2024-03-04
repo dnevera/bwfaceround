@@ -37,7 +37,6 @@ class SystemField extends Ui.Drawable {
     function draw(dc){
         var systemStats = Sys.getSystemStats();
         var battery     = systemStats.battery;
-        var fbattery    =  battery.format("%d") + "%";
 
         var x = locX-w/2;
         var y = locY;
@@ -68,7 +67,6 @@ class SystemField extends Ui.Drawable {
         dc.fillRoundedRectangle(x, y, w*battery/100, h, 2);
 
         var xp = x+w+framePadding/2;
-        var yp = y+h/2-2;
 
         var color = Sys.getDeviceSettings().phoneConnected ? btIconColor: 0x303030;
         BWFace.phoneIcon(dc,
